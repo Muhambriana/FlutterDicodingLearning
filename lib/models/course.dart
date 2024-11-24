@@ -9,7 +9,7 @@ class CourseModel {
   int totalStudents;
   int totalModules;
   double rating;
-  String url;
+  double progress;
   String description;
   String banner;
   List<String> reviewersPhoto;
@@ -23,7 +23,7 @@ class CourseModel {
     required this.totalStudents,
     required this.totalModules,
     required this.rating,
-    required this.url,
+    required this.progress,
     required this.description,
     required this.banner,
     required this.reviewersPhoto,
