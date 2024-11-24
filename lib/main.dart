@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_dicoding_learning/course_list.dart';
-import 'package:flutter_dicoding_learning/utils/strings.dart';
+import '../ui/course_list_screen.dart';
+import '../utils/strings.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
