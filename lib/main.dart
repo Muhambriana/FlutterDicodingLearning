@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import '../ui/course_list_screen.dart';
+import 'ui/list/course_list_screen.dart';
 import '../utils/strings.dart';
 
 void main() {
