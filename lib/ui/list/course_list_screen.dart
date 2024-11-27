@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'course_detail_screen.dart';
-import '../models/course.dart';
-import '../utils/data_sample.dart';
-import '../../utils/strings.dart';
-import '../../utils/app_colors.dart';
+import '../detail/course_detail_screen.dart';
+import '../../models/course.dart';
+import '../../utils/data_sample.dart';
+import '../../../utils/strings.dart';
+import '../../../utils/app_colors.dart';
+import '../../utils/helper.dart';
+
 
 
 
@@ -24,13 +26,13 @@ class HomePage extends StatelessWidget {
             ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.person_2_outlined),
+          icon: const Icon(Icons.person_2_outlined),
           color: AppColors.primaryColor,
           onPressed: () {},
         ),
         actions: [
           IconButton(
-              icon: Icon(Icons.logout_outlined),
+              icon: const Icon(Icons.logout_outlined),
               color: AppColors.primaryColor,
               onPressed: () {},
           )
@@ -105,12 +107,12 @@ class CourseCard extends StatelessWidget {
                           children: [
                             const Icon(
                               Icons.star_rate_outlined,
-                              color: AppColors.primaryColor,
+                              color: Colors.amber,
                             ),
                             const SizedBox(width: 8.0),
                             Text(
                               course.rating.toString(),
-                              style: informationTextStyle,
+                              style: Utils.getInformationTextStyle(),
                             )
                           ],
                         ),
@@ -124,9 +126,9 @@ class CourseCard extends StatelessWidget {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
                                 child: LinearProgressIndicator(
-                                  value: course.progress/100, // Progress value (50%)
+                                  value: course.progress/100, // Progress value /100
                                   color: AppColors.primaryColor,
-                                  backgroundColor: Colors.grey.shade300,
+                                  backgroundColor: Colors.grey.shade600,
                                   minHeight: 10,
                                 ),
                               ),
@@ -136,7 +138,7 @@ class CourseCard extends StatelessWidget {
                                flex: 1,
                                child: Text(
                                  "${course.progress.toInt()}%",
-                                 style: informationTextStyle,
+                                 style: Utils.getInformationTextStyle(),
                                )
                             ),
                           ],
