@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../detail/course_detail_screen.dart';
-import '../../models/course.dart';
-import '../../utils/data_sample.dart';
+import '../../../models/course.dart';
+import '../../../utils/data_sample.dart';
 import '../../../utils/strings.dart';
 import '../../../utils/app_colors.dart';
-import '../../utils/helper.dart';
+import '../../../utils/helper.dart';
 
 
 

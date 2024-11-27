@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../models/course.dart';
 import '../../../utils/helper.dart';
-import '../../../ui/detail/bookmark_button.dart';
-import '../../../ui/detail/back_button.dart';
+import '../../../ui/course/detail/bookmark_button.dart';
+import '../../../ui/course/detail/back_button.dart';
 
 
 class DetailMobilePage extends StatelessWidget {
