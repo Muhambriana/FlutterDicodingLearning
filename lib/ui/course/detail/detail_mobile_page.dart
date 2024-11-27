@@ -94,7 +94,7 @@ class DetailMobilePage extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const BookmarkButton(),
+          const BookmarkButton(iconSize: 35),
           Text(
             course.name,
             textAlign: TextAlign.center,
