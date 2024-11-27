@@ -41,7 +41,7 @@ class DetailMobilePage extends StatelessWidget {
           Image.network(course.banner),
           const SafeArea(
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -65,7 +65,7 @@ class DetailMobilePage extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 400, 0, 0),
+                padding: const EdgeInsets.fromLTRB(0, 350, 0, 0),
                 child: Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -95,6 +95,7 @@ class DetailMobilePage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const BookmarkButton(iconSize: 35),
+          const SizedBox(height: 10.0),
           Text(
             course.name,
             textAlign: TextAlign.center,
@@ -102,15 +103,43 @@ class DetailMobilePage extends StatelessWidget {
               fontSize: 20,
             ),
           ),
-          const SizedBox(height: 10.0),
+          const SizedBox(height: 30.0),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _InfoColumn(
-                  icon: Icons.star_rate,
-                  label: course.rating.toString()),
+              const Text(
+                "Technology:",
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+              const SizedBox(width: 10.0,),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  border: Border.all(
+                    color: const Color(0xFF4E4AF2),
+                    width: 2.5,
+                  )
+                ),
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.all(6.0),
+                    child: Text(
+                      "IOS",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
+          const SizedBox(height: 10.0),
         ],
       ),
     );
