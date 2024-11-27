@@ -79,22 +79,26 @@ class DetailMobilePage extends StatelessWidget {
                       topRight: Radius.circular(35.0),
                     ),
                   ),
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        _InfoColumn(
-                            icon: Icons.star_rate,
-                            label: course.rating.toString()),
-                      ],
-                    ),
-                  ),
+                  child: _contentWidget(course),
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+  
+  Widget _contentWidget(CourseModel course) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          _InfoColumn(
+              icon: Icons.star_rate,
+              label: course.rating.toString()),
+        ],
       ),
     );
   }
