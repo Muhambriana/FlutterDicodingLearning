@@ -46,7 +46,6 @@ class DetailMobilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   BackButtonDicoding(),
-                  BookmarkButton(),
                 ],
               ),
             ),
@@ -91,13 +90,27 @@ class DetailMobilePage extends StatelessWidget {
   
   Widget _contentWidget(CourseModel course) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      margin: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          _InfoColumn(
-              icon: Icons.star_rate,
-              label: course.rating.toString()),
+          const BookmarkButton(),
+          Text(
+            course.name,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 20,
+            ),
+          ),
+          const SizedBox(height: 10.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _InfoColumn(
+                  icon: Icons.star_rate,
+                  label: course.rating.toString()),
+            ],
+          ),
         ],
       ),
     );
