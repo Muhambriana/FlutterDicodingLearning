@@ -1,7 +1,10 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class BookmarkButton extends StatefulWidget {
-  const BookmarkButton({super.key});
+  final double? iconSize;
+  const BookmarkButton({this.iconSize, super.key});
 
   @override
   State<BookmarkButton> createState() => _BookmarkButtonState();
@@ -21,6 +24,7 @@ class _BookmarkButtonState extends State<BookmarkButton> {
         icon: Icon(
           isBookmark ? Icons.bookmark_added_rounded : Icons.bookmark_add_outlined,
           color: Colors.white,
+          size: widget.iconSize,
         ));
   }
 }
