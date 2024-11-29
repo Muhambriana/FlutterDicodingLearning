@@ -71,9 +71,11 @@ var courseList = [
       'Web',
     ],
     reviewersPhoto: [
-      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-11bd08bac6dc225670139753c20f60bc20240205134622.png',
-      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-df64c85f2f70611d293966b01f8c5a9f20240615153103.png',
-      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:69dd63f4d64d2b90261e774ceedc217120230122164413.png',
+      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:7b460850297426c432bc064f31f8de0a20220412100724.png',
+      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-db5b847be74fdf4ae198d215accdc85b20231226112039.png',
+      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:7be4a0a8d42738abf94c8033dce75e0020221208201312.png',
+      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-f91f994997e71c054011f54994dce6ce20241114200929.png',
+      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:a24fed3e930193c1117094810f2fbb2e20230811104511.png',
     ],
   ),
 ];
