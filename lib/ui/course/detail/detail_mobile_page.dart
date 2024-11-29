@@ -22,7 +22,7 @@ class DetailMobilePage extends StatelessWidget {
                 Stack(
                   children: [
                     _buildBannerAndBackButton(context),
-                    _buildGradientSection(constraints, course),
+                    _buildGradientSection(context, constraints, course),
                   ],
                 ),
               ],
@@ -55,7 +55,7 @@ class DetailMobilePage extends StatelessWidget {
     );
   }
 
-  Widget _buildGradientSection(BoxConstraints constraints, CourseModel course) {
+  Widget _buildGradientSection(BuildContext context, BoxConstraints constraints, CourseModel course) {
     return ConstrainedBox(
       constraints: BoxConstraints(
           minWidth: constraints.maxWidth, minHeight: constraints.maxHeight),
@@ -65,7 +65,12 @@ class DetailMobilePage extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 350, 0, 0),
+                padding: EdgeInsets.fromLTRB(
+                    0,
+                    Utils.getHeightByDevice(context, 0.4),
+                    0,
+                    0
+                ),
                 child: Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -87,7 +92,7 @@ class DetailMobilePage extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _contentWidget(CourseModel course) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20),
@@ -113,38 +118,34 @@ class DetailMobilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 10.0,),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                  border: Border.all(
-                    color: const Color(0xFF4E4AF2),
-                    width: 2.5,
-                  )
-                ),
-                child: const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.all(6.0),
-                    child: Text(
-                      "IOS",
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: 13,
-                      ),
-                    ),
+              Expanded(
+                child: SizedBox(
+                  height: 40,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: course.technology.map((techName) => _ListTechnology(techName: techName)).toList(),
                   ),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 10.0),
+          Row(
+            children: [
+              Icon(Icons.access_time_rounded),
+              SizedBox(width: 10,),
+              Text(
+                "${course.averageTimeToFinish} Jam"
+              ),
+            ],
+          ),
         ],
       ),
     );
   }
 }
+
+
 
 class _InfoColumn extends StatelessWidget {
   final IconData icon;
@@ -160,6 +161,43 @@ class _InfoColumn extends StatelessWidget {
         const SizedBox(height: 8.0),
         Text(label, textAlign: TextAlign.center, style: Utils.getInformationTextStyle()),
       ],
+    );
+  }
+}
+
+class _ListTechnology extends StatelessWidget {
+  final String techName;
+
+  const _ListTechnology({required this.techName});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(10),
+            ),
+            border: Border.all(
+              color: const Color(0xFF4E4AF2),
+              width: 2.5,
+            )
+        ),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Text(
+              techName,
+              textAlign: TextAlign.start,
+              style: const TextStyle(
+                fontSize: 14,
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
