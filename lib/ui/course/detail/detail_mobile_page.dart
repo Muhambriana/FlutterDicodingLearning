@@ -160,6 +160,29 @@ class DetailMobilePage extends StatelessWidget {
             textAlign: TextAlign.start,
             style: const TextStyle(fontSize: 15),
           ),
+          const SizedBox(height: 20.0),
+          Row(
+            children: [
+              Text(
+                "Reviewer's",
+                style: TextStyle(
+                  fontSize: middleSizeText,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10.0),
+          Expanded(
+            child: SizedBox(
+              height: 200,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: course.reviewersPhoto
+                    .map((url) => _ListReviewer(url: url))
+                    .toList(),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -227,6 +250,23 @@ class _ListTechnology extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _ListReviewer extends StatelessWidget {
+  final String url;
+
+  const _ListReviewer({required this.url});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.network(url),
+        )
     );
   }
 }
