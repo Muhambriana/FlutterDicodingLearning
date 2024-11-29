@@ -12,6 +12,7 @@ class CourseModel {
   double progress;
   String description;
   String banner;
+  List<String> technology;
   List<String> reviewersPhoto;
 
 
@@ -26,6 +27,7 @@ class CourseModel {
     required this.progress,
     required this.description,
     required this.banner,
+    required this.technology,
     required this.reviewersPhoto,
   });
 }
