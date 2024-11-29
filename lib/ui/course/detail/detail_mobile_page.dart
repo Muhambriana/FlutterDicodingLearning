@@ -111,79 +111,20 @@ class DetailMobilePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30.0),
-          Row(
-            children: [
-              const Icon(
-                FontAwesomeIcons.star,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              Text(
-                course.rating.toString(),
-                style: TextStyle(
-                  fontSize: smallSizeText,
-                ),
-              ),
-            ],
-          ),
+          _InfoColumn(icon: FontAwesomeIcons.star, label: course.rating.toString()),
           const SizedBox(height: 10.0),
-          Row(
-            children: [
-              const Icon(
-                FontAwesomeIcons.clock,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              Text(
-                "${course.averageTimeToFinish} Jam",
-                style: TextStyle(
-                  fontSize: smallSizeText,
-                ),
-              ),
-            ],
-          ),
+          _InfoColumn(icon: FontAwesomeIcons.clock, label: "${course.averageTimeToFinish} Jam"),
           const SizedBox(height: 10.0),
-          Row(
-            children: [
-              const Icon(
-                FontAwesomeIcons.medal,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              Text(
-                course.courseLevel.name,
-                style: TextStyle(
-                  fontSize: smallSizeText,
-                ),
-              ),
-            ],
-          ),
+          _InfoColumn(icon: FontAwesomeIcons.medal, label: course.courseLevel.name),
           const SizedBox(height: 10.0),
-          Row(
-            children: [
-              const Icon(
-                FontAwesomeIcons.peopleGroup,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              Text("${course.totalStudents} Siswa Terdaftar"),
-            ],
-          ),
+          _InfoColumn(icon: FontAwesomeIcons.peopleGroup, label: "${course.totalStudents} Siswa Terdaftar"),
           const SizedBox(height: 20.0),
           Row(
             children: [
-              const Text(
+              Text(
                 "Technology:",
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: middleSizeText,
                 ),
               ),
               const SizedBox(
@@ -203,12 +144,12 @@ class DetailMobilePage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20.0),
-          const Row(
+          Row(
             children: [
               Text(
                 "Description",
                 style: TextStyle(
-                  fontSize: 17,
+                  fontSize: middleSizeText,
                 ),
               ),
             ],
@@ -233,13 +174,21 @@ class _InfoColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       children: [
-        Icon(icon),
-        const SizedBox(height: 8.0),
-        Text(label,
-            textAlign: TextAlign.center,
-            style: Utils.getInformationTextStyle()),
+        Icon(
+          icon,
+          color: Colors.white,
+        ),
+        const SizedBox(
+          width: 15,
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: smallSizeText,
+          ),
+        ),
       ],
     );
   }
