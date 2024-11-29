@@ -136,7 +136,7 @@ class DetailMobilePage extends StatelessWidget {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: course.technology
-                        .map((techName) => _ListTechnology(techName: techName))
+                        .map((techName) => _ListTechnology(techName: techName.name))
                         .toList(),
                   ),
                 ),
