@@ -52,4 +52,28 @@ var courseList = [
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:69dd63f4d64d2b90261e774ceedc217120230122164413.png',
     ],
   ),
+  CourseModel(
+    name: 'Belajar Prinsip Pemrograman SOLID',
+    pathParent: PathParent.android,
+    courseLevel: CourseLevel.intermediate,
+    averageTimeToFinish: 15,
+    totalStudents: 42247,
+    totalModules: 95,
+    rating: 4.87,
+    progress: 61,
+    description:
+    'Semua orang bisa membuat kode program selama dia tahu suatu bahasa pemrograman. Tetapi membuat kode program yang mudah dimengerti, mudah dikelola, dan mudah dikembangkan adalah tantangan yang nyata, bahkan untuk seorang yang sudah menjadi programmer sekalipun. Di dalam paradigma OOP (object-oriented programming), terdapat prinsip SOLID sebagai solusi yang bisa digunakan untuk menyelesaikan problem tersebut. Prinsip ini dikenalkan oleh Robert C. Martin, seorang engineer dan penulis dari buku Clean Code. ',
+    banner: 'https://pikaso.cdnpk.net/private/production/1159958626/render.jpeg?token=exp=1759449600~hmac=f297dc38aea653fb81f82f7e0025aac9cc64e42d225e96a9965f2cbeaba22711',
+    technology: [
+      'Android',
+      'IOS',
+      'Multi-Platform',
+      'Web',
+    ],
+    reviewersPhoto: [
+      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-11bd08bac6dc225670139753c20f60bc20240205134622.png',
+      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-df64c85f2f70611d293966b01f8c5a9f20240615153103.png',
+      'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:69dd63f4d64d2b90261e774ceedc217120230122164413.png',
+    ],
+  ),
 ];
