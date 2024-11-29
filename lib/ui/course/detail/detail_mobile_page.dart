@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dicoding_learning/utils/app_colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -72,8 +73,7 @@ class DetailMobilePage extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding:
-                    EdgeInsets.only(top: Utils.getHeightByDevice(context, 0.4)),
+                padding: EdgeInsets.only(top: Utils.getHeightByDevice(context, 0.4)),
                 child: Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -173,15 +173,7 @@ class DetailMobilePage extends StatelessWidget {
           ),
           const SizedBox(height: 10.0),
           Expanded(
-            child: SizedBox(
-              height: 200,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: course.reviewersPhoto
-                    .map((url) => _ListReviewer(url: url))
-                    .toList(),
-              ),
-            ),
+            child: _buildCarousel(course.reviewersPhoto),
           ),
         ],
       ),
@@ -254,19 +246,38 @@ class _ListTechnology extends StatelessWidget {
   }
 }
 
-class _ListReviewer extends StatelessWidget {
-  final String url;
-
-  const _ListReviewer({required this.url});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.network(url),
-        )
-    );
-  }
+Widget _buildCarousel(List<String> reviewersPhoto) {
+  return Builder(
+    builder: (context) {
+      return CarouselSlider.builder(
+        itemCount: reviewersPhoto.length,
+        itemBuilder: (context, index, realIndex) {
+          return Container(
+            margin: const EdgeInsets.symmetric(horizontal: 5),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              image: DecorationImage(
+                image: NetworkImage(reviewersPhoto[index]),
+                fit: BoxFit.cover,
+              ),
+            ),
+          );
+        },
+        options: CarouselOptions(
+          height: Utils.getHeightByDevice(context, 0.15),
+          enlargeCenterPage: true,
+          autoPlay: true,
+          viewportFraction: 0.3,
+          autoPlayAnimationDuration: const Duration(milliseconds: 800),
+          autoPlayCurve: Curves.fastOutSlowIn,
+        ),
+      );
+    },
+  );
 }
+
+
+
+
+
+
