@@ -4,7 +4,10 @@ import '../utils/config/config.dart';
 var courseList = [
   CourseModel(
     name: 'Belajar Membuat Aplikasi Flutter untuk Pemula',
-    pathParent: PathParent.multiPlatform,
+    pathParent:
+    [
+      PathParent.multiPlatform
+    ],
     courseLevel: CourseLevel.beginner,
     averageTimeToFinish: 10,
     totalStudents: 999,
@@ -15,9 +18,9 @@ var courseList = [
     'Sejak dikenalkan oleh Google pada Mei 2017, Flutter langsung menarik perhatian. UI toolkit dari Google ini memungkinkan developer untuk mengembangkan aplikasi di berbagai platform mobile seperti Android dan iOS. Bahkan pada pengembangan terbarunya, Flutter tidak hanya digunakan pada platform mobile, namun sudah merambah ke sisi web dan desktop. Flutter sendiri telah digunakan oleh berbagai perusahaan besar seperti Google, Alibaba.com, dan Tencent.',
     banner: 'https://pikaso.cdnpk.net/private/production/1159864215/render.jpeg?token=exp=1759190400~hmac=5b7e7b77d68408c5a3c84cdb34c930ef7a3f91b788c63cb6760fa6cae5b70f81',
     technology: [
-      'IOS',
-      'Android',
-      'Web'
+      PathParent.android,
+      PathParent.ios,
+      PathParent.multiPlatform,
     ],
     reviewersPhoto: [
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-d13c84e75ec527250b9ecc6f7079688b20240922021026.png',
@@ -31,7 +34,9 @@ var courseList = [
   ),
   CourseModel(
     name: 'Belajar Fundamental Aplikasi Flutter',
-    pathParent: PathParent.multiPlatform,
+    pathParent: [
+      PathParent.multiPlatform
+    ],
     courseLevel: CourseLevel.intermediate,
     averageTimeToFinish: 90,
     totalStudents: 4850,
@@ -42,9 +47,9 @@ var courseList = [
     'Sejak dikenalkan oleh Google pada Mei 2017, Flutter langsung menarik perhatian. UI toolkit dari Google ini memungkinkan developer untuk mengembangkan aplikasi di berbagai platform mobile seperti Android dan iOS. Bahkan pada pengembangan terbarunya, Flutter tidak hanya digunakan pada platform mobile, namun sudah merambah ke sisi web dan desktop. Flutter sendiri telah digunakan oleh berbagai perusahaan besar seperti Google, Alibaba.com, dan Tencent.',
     banner: 'https://pikaso.cdnpk.net/private/production/1159958634/render.jpeg?token=exp=1759190400~hmac=3bc905b22befc04f299815469ccaad1c4e6c443bcade0f66ec2b7e1d732af399',
     technology: [
-      'IOS',
-      'Android',
-      'Web'
+      PathParent.android,
+      PathParent.ios,
+      PathParent.multiPlatform,
     ],
     reviewersPhoto: [
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-11bd08bac6dc225670139753c20f60bc20240205134622.png',
@@ -54,7 +59,12 @@ var courseList = [
   ),
   CourseModel(
     name: 'Belajar Prinsip Pemrograman SOLID',
-    pathParent: PathParent.android,
+    pathParent: [
+      PathParent.android,
+      PathParent.ios,
+      PathParent.multiPlatform,
+      PathParent.web,
+    ],
     courseLevel: CourseLevel.intermediate,
     averageTimeToFinish: 15,
     totalStudents: 42247,
@@ -65,10 +75,10 @@ var courseList = [
     'Semua orang bisa membuat kode program selama dia tahu suatu bahasa pemrograman. Tetapi membuat kode program yang mudah dimengerti, mudah dikelola, dan mudah dikembangkan adalah tantangan yang nyata, bahkan untuk seorang yang sudah menjadi programmer sekalipun. Di dalam paradigma OOP (object-oriented programming), terdapat prinsip SOLID sebagai solusi yang bisa digunakan untuk menyelesaikan problem tersebut. Prinsip ini dikenalkan oleh Robert C. Martin, seorang engineer dan penulis dari buku Clean Code. ',
     banner: 'https://pikaso.cdnpk.net/private/production/1159958626/render.jpeg?token=exp=1759449600~hmac=f297dc38aea653fb81f82f7e0025aac9cc64e42d225e96a9965f2cbeaba22711',
     technology: [
-      'Android',
-      'IOS',
-      'Multi-Platform',
-      'Web',
+      PathParent.android,
+      PathParent.ios,
+      PathParent.multiPlatform,
+      PathParent.web,
     ],
     reviewersPhoto: [
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:7b460850297426c432bc064f31f8de0a20220412100724.png',

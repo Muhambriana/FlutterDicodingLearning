@@ -3,7 +3,7 @@ import '../utils/config/config.dart';
 
 class CourseModel {
   String name;
-  PathParent pathParent;
+  List<PathParent> pathParent;
   CourseLevel courseLevel;
   int averageTimeToFinish;
   int totalStudents;
@@ -12,7 +12,7 @@ class CourseModel {
   double progress;
   String description;
   String banner;
-  List<String> technology;
+  List<PathParent> technology;
   List<String> reviewersPhoto;
 
 
