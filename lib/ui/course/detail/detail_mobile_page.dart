@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../../models/course.dart';
-import '../../../utils/helper.dart';
-import '../../../ui/course/detail/bookmark_button.dart';
-import '../../../ui/course/detail/back_button.dart';
+import 'package:flutter_dicoding_learning/utils/app_colors.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../models/course.dart';
+import '../../../ui/course/detail/back_button.dart';
+import '../../../ui/course/detail/bookmark_button.dart';
+import '../../../utils/helper.dart';
+
+var bigSizeText = 25.0;
+var middleSizeText = 20.0;
+var smallSizeText = 16.0;
 
 class DetailMobilePage extends StatelessWidget {
   final CourseModel course;
@@ -55,7 +61,8 @@ class DetailMobilePage extends StatelessWidget {
     );
   }
 
-  Widget _buildGradientSection(BuildContext context, BoxConstraints constraints, CourseModel course) {
+  Widget _buildGradientSection(
+      BuildContext context, BoxConstraints constraints, CourseModel course) {
     return ConstrainedBox(
       constraints: BoxConstraints(
           minWidth: constraints.maxWidth, minHeight: constraints.maxHeight),
@@ -65,19 +72,14 @@ class DetailMobilePage extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                    0,
-                    Utils.getHeightByDevice(context, 0.4),
-                    0,
-                    0
-                ),
+                padding:
+                    EdgeInsets.only(top: Utils.getHeightByDevice(context, 0.4)),
                 child: Container(
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
-                        colors: [Color(0xff353f53), Color(0xff212734)]
-                    ),
+                        colors: [Color(0xff353f53), Color(0xff212734)]),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(35.0),
                       topRight: Radius.circular(35.0),
@@ -104,11 +106,78 @@ class DetailMobilePage extends StatelessWidget {
           Text(
             course.name,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 20,
+            style: TextStyle(
+              fontSize: bigSizeText,
             ),
           ),
           const SizedBox(height: 30.0),
+          Row(
+            children: [
+              const Icon(
+                FontAwesomeIcons.star,
+                color: Colors.white,
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              Text(
+                course.rating.toString(),
+                style: TextStyle(
+                  fontSize: smallSizeText,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10.0),
+          Row(
+            children: [
+              const Icon(
+                FontAwesomeIcons.clock,
+                color: Colors.white,
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              Text(
+                "${course.averageTimeToFinish} Jam",
+                style: TextStyle(
+                  fontSize: smallSizeText,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10.0),
+          Row(
+            children: [
+              const Icon(
+                FontAwesomeIcons.medal,
+                color: Colors.white,
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              Text(
+                course.courseLevel.name,
+                style: TextStyle(
+                  fontSize: smallSizeText,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10.0),
+          Row(
+            children: [
+              const Icon(
+                FontAwesomeIcons.peopleGroup,
+                color: Colors.white,
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              Text("${course.totalStudents} Siswa Terdaftar"),
+            ],
+          ),
+          const SizedBox(height: 20.0),
           Row(
             children: [
               const Text(
@@ -117,35 +186,44 @@ class DetailMobilePage extends StatelessWidget {
                   fontSize: 15,
                 ),
               ),
-              const SizedBox(width: 10.0,),
+              const SizedBox(
+                width: 10.0,
+              ),
               Expanded(
                 child: SizedBox(
                   height: 40,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    children: course.technology.map((techName) => _ListTechnology(techName: techName)).toList(),
+                    children: course.technology
+                        .map((techName) => _ListTechnology(techName: techName))
+                        .toList(),
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 10.0),
-          Row(
+          const SizedBox(height: 20.0),
+          const Row(
             children: [
-              Icon(Icons.access_time_rounded),
-              SizedBox(width: 10,),
               Text(
-                "${course.averageTimeToFinish} Jam"
+                "Description",
+                style: TextStyle(
+                  fontSize: 17,
+                ),
               ),
             ],
+          ),
+          const SizedBox(height: 10.0),
+          Text(
+            course.description,
+            textAlign: TextAlign.start,
+            style: const TextStyle(fontSize: 15),
           ),
         ],
       ),
     );
   }
 }
-
-
 
 class _InfoColumn extends StatelessWidget {
   final IconData icon;
@@ -159,7 +237,9 @@ class _InfoColumn extends StatelessWidget {
       children: [
         Icon(icon),
         const SizedBox(height: 8.0),
-        Text(label, textAlign: TextAlign.center, style: Utils.getInformationTextStyle()),
+        Text(label,
+            textAlign: TextAlign.center,
+            style: Utils.getInformationTextStyle()),
       ],
     );
   }
@@ -176,13 +256,13 @@ class _ListTechnology extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(10),
-            ),
-            border: Border.all(
-              color: const Color(0xFF4E4AF2),
-              width: 2.5,
-            )
+          borderRadius: const BorderRadius.all(
+            Radius.circular(10),
+          ),
+          border: Border.all(
+            color: AppColors.primaryBlue,
+            width: 2.5,
+          ),
         ),
         child: Align(
           alignment: Alignment.centerLeft,
