@@ -98,16 +98,17 @@ class AppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-              onPressed: () {
-
-              },
-              icon: _buildIconNotification(true)
-          ),
-          CircleAvatar(
-            radius: 25,
-            backgroundImage: NetworkImage(user.photoProfile),
-            backgroundColor: Colors.transparent,
+          _buildIconNotification(true),
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: NetworkImage(user.photoProfile),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
         ],
       ),
@@ -115,20 +116,40 @@ class AppBar extends StatelessWidget {
   }
 
   Widget _buildIconNotification(bool hasUnreadNotifications) {
-    return Stack(
-      children: <Widget>[
-        const Icon(Icons.notifications, size: 30.0), // The main bell icon
-        if (hasUnreadNotifications) // Check if there are unread notifications
-          const Positioned(
-            top: 0.0,
-            right: 0.0,
-            child: Icon(
-              Icons.brightness_1,
-              size: 8.0,  // Small size for the notification dot
-              color: Colors.redAccent, // Red dot color
+    return GestureDetector(
+      onTap: () {
+
+      },
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFF34C8E8), Color(0xFF4E4AF2)],
+              ),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: const EdgeInsets.all(10.0),
+            child: const Icon(
+              Icons.notifications,
+              size: 24,
+              color: Colors.white,
             ),
           ),
-      ],
+          if (hasUnreadNotifications)
+            const Positioned(
+              top: 4.0,
+              right: 4.0,
+              child: CircleAvatar(
+                radius: 4.0,
+                backgroundColor: Colors.white,
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
