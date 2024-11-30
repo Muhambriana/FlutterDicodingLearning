@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'ui/course/list/course_list_screen.dart';
+import 'ui/course/home/home_screen.dart';
 import '../utils/strings.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           fontFamily: 'PublicSans'
       ),
-      home: const CourseListPage(),
+      home: const HomePage(),
     );
   }
 }
