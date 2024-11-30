@@ -22,6 +22,31 @@ class HomePage extends StatelessWidget {
             children: [
               const AppBar(),
               const SizedBox(height: 20,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Hey, ${user.fullName}",
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Text(
+                      "Learn new Skills today!",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w100,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20,),
               _buildCarousel(newsBanner),
               const SizedBox(height: 10,),
               const CourseList()
@@ -73,25 +98,11 @@ class AppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Welcome!",
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 14,
-                ),
-              ),
-              Text(
-                user.fullName,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ],
+          IconButton(
+              onPressed: () {
+
+              },
+              icon: _buildIconNotification(true)
           ),
           CircleAvatar(
             radius: 25,
@@ -100,6 +111,24 @@ class AppBar extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildIconNotification(bool hasUnreadNotifications) {
+    return Stack(
+      children: <Widget>[
+        const Icon(Icons.notifications, size: 30.0), // The main bell icon
+        if (hasUnreadNotifications) // Check if there are unread notifications
+          const Positioned(
+            top: 0.0,
+            right: 0.0,
+            child: Icon(
+              Icons.brightness_1,
+              size: 8.0,  // Small size for the notification dot
+              color: Colors.redAccent, // Red dot color
+            ),
+          ),
+      ],
     );
   }
 }
