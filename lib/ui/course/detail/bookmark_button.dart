@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 
 class BookmarkButton extends StatefulWidget {
   final double? iconSize;
-  const BookmarkButton({this.iconSize, super.key});
+  final bool? isBookmark;
+  const BookmarkButton({this.iconSize, this.isBookmark, super.key});
 
   @override
   State<BookmarkButton> createState() => _BookmarkButtonState();
 }
 
 class _BookmarkButtonState extends State<BookmarkButton> {
-  bool isBookmark = false;
+  late bool isBookmark;
 
+  @override
+  void initState() {
+    super.initState();
+    isBookmark = widget.isBookmark ?? false;
+  }
   @override
   Widget build(BuildContext context) {
     return IconButton(

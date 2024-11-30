@@ -114,9 +114,12 @@ class DetailMobilePage extends StatelessWidget {
                   course.pathParent.map((e) => e.name).join(', '),
                 ),
               ),
-              const Expanded(
+              Expanded(
                 flex: 1,
-                child: BookmarkButton(iconSize: 35),
+                child: BookmarkButton(
+                  iconSize: 35,
+                  isBookmark: course.isBookmark,
+                ),
               ),
             ],
           ),
