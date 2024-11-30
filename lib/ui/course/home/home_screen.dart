@@ -109,17 +109,14 @@ class CourseList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: ListView.builder(
-        itemCount: courseList.length,
-        itemBuilder: (context, index) {
-          return CourseCard(course: courseList[index]);
-        },
-      ),
+    return Column(
+      children: courseList.map((course) {
+        return CourseCard(course: course);
+      }).toList(),
     );
   }
 }
+
 
 class CourseCard extends StatelessWidget {
   final CourseModel course;
