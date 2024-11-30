@@ -135,6 +135,8 @@ class DetailMobilePage extends StatelessWidget {
           const SizedBox(height: 10.0),
           _InfoColumn(icon: FontAwesomeIcons.medal, label: course.courseLevel.name),
           const SizedBox(height: 10.0),
+          _InfoColumn(icon: FontAwesomeIcons.book, label: "${course.totalModules} Modul Belajar"),
+          const SizedBox(height: 10.0),
           _InfoColumn(icon: FontAwesomeIcons.peopleGroup, label: "${course.totalStudents} Siswa Terdaftar"),
           const SizedBox(height: 20.0),
           Row(
