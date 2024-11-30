@@ -7,11 +7,8 @@ import '../../../utils/strings.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/helper.dart';
 
-
-
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class CourseListPage extends StatelessWidget {
+  const CourseListPage({super.key});
 
   @override
   Widget build(BuildContext context) {

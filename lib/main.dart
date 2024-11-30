@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           fontFamily: 'PublicSans'
       ),
-      home: const HomePage(),
+      home: const CourseListPage(),
     );
   }
 }
