@@ -112,6 +112,7 @@ class DetailMobilePage extends StatelessWidget {
                 flex: 8,
                 child: Text(
                   course.pathParent.map((e) => e.name).join(', '),
+                  style: const TextStyle(color: AppColors.nonPrimaryText,),
                 ),
               ),
               Expanded(
@@ -132,7 +133,7 @@ class DetailMobilePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 40.0),
-          _InfoColumn(icon: FontAwesomeIcons.star, label: course.rating.toString()),
+          _InfoColumn(icon: FontAwesomeIcons.star, label: course.rating.toString(), iconColor: Colors.amber,),
           const SizedBox(height: 10.0),
           _InfoColumn(icon: FontAwesomeIcons.clock, label: "${course.averageTimeToFinish} Jam"),
           const SizedBox(height: 10.0),
@@ -148,6 +149,7 @@ class DetailMobilePage extends StatelessWidget {
                 "Technology:",
                 style: TextStyle(
                   fontSize: middleSizeText,
+                  color: AppColors.nonPrimaryText,
                 ),
               ),
               const SizedBox(
@@ -173,6 +175,7 @@ class DetailMobilePage extends StatelessWidget {
                 "Description",
                 style: TextStyle(
                   fontSize: middleSizeText,
+                  color: AppColors.nonPrimaryText,
                 ),
               ),
             ],
@@ -181,7 +184,10 @@ class DetailMobilePage extends StatelessWidget {
           Text(
             course.description,
             textAlign: TextAlign.start,
-            style: const TextStyle(fontSize: 15),
+            style: const TextStyle(
+                fontSize: 15,
+                color: AppColors.nonPrimaryText,
+            ),
           ),
           const SizedBox(height: 20.0),
           Row(
@@ -207,8 +213,9 @@ class DetailMobilePage extends StatelessWidget {
 class _InfoColumn extends StatelessWidget {
   final IconData icon;
   final String label;
+  final Color? iconColor;
 
-  const _InfoColumn({required this.icon, required this.label});
+  const _InfoColumn({required this.icon, required this.label, this.iconColor});
 
   @override
   Widget build(BuildContext context) {
@@ -216,7 +223,7 @@ class _InfoColumn extends StatelessWidget {
       children: [
         Icon(
           icon,
-          color: Colors.white,
+          color: iconColor ?? Colors.white,
         ),
         const SizedBox(
           width: 15,
