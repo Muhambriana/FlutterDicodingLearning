@@ -101,8 +101,26 @@ class DetailMobilePage extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const BookmarkButton(iconSize: 35),
-          const SizedBox(height: 10.0),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                FontAwesomeIcons.route
+              ),
+              const SizedBox(width: 10.0),
+              Expanded(
+                flex: 8,
+                child: Text(
+                  course.pathParent.map((e) => e.name).join(', '),
+                ),
+              ),
+              const Expanded(
+                flex: 1,
+                child: BookmarkButton(iconSize: 35),
+              ),
+            ],
+          ),
+          const SizedBox(height: 30.0),
           Text(
             course.name,
             textAlign: TextAlign.center,
@@ -110,7 +128,7 @@ class DetailMobilePage extends StatelessWidget {
               fontSize: bigSizeText,
             ),
           ),
-          const SizedBox(height: 30.0),
+          const SizedBox(height: 40.0),
           _InfoColumn(icon: FontAwesomeIcons.star, label: course.rating.toString()),
           const SizedBox(height: 10.0),
           _InfoColumn(icon: FontAwesomeIcons.clock, label: "${course.averageTimeToFinish} Jam"),
