@@ -39,14 +39,21 @@ class HomePage extends StatelessWidget {
           itemCount: newsBanner.length,
           itemBuilder: (context, index, realIndex) {
             return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 0.1),
-              child: Image.asset(newsBanner[index]),
+              margin: const EdgeInsets.symmetric(horizontal: 5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                  image: AssetImage(newsBanner[index]),
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
             );
           },
           options: CarouselOptions(
+            height: Utils.getHeightByDevice(context, 0.200),
             enlargeCenterPage: true,
             autoPlay: true,
-            viewportFraction: 0.75,
+            viewportFraction: 0.95,
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
           ),
@@ -66,30 +73,28 @@ class AppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Text Section
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 "Welcome!",
                 style: TextStyle(
-                  color: Colors.grey, // Adjust color to fit your design
-                  fontSize: 14, // Small font for "Welcome"
+                  color: Colors.grey,
+                  fontSize: 14,
                 ),
               ),
               Text(
                 user.fullName,
                 style: const TextStyle(
-                  fontSize: 18, // Larger font for full name
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white, // Adjust to fit your design
+                  color: Colors.white,
                 ),
               ),
             ],
           ),
-          // Profile Image
           CircleAvatar(
-            radius: 25, // Adjust size as needed
+            radius: 25,
             backgroundImage: NetworkImage(user.photoProfile),
             backgroundColor: Colors.transparent,
           ),
@@ -105,7 +110,7 @@ class CourseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height, // Set height explicitly
+      height: MediaQuery.of(context).size.height,
       child: ListView.builder(
         itemCount: courseList.length,
         itemBuilder: (context, index) {
