@@ -101,11 +101,11 @@ var user = User(
 
 var newsBanner = [
   'assets/images/live_1.jpg',
+  'assets/images/program_4.jpg',
   'assets/images/live_2.jpg',
+  'assets/images/program_2.png',
   'assets/images/live_3.png',
   'assets/images/program_1.jpg',
-  'assets/images/program_2.png',
   'assets/images/program_3.jpg',
-  'assets/images/program_4.jpg',
   'assets/images/program_5.png',
 ];
