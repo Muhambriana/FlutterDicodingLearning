@@ -1,16 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dicoding_learning/utils/app_colors.dart';
+import 'package:flutter_dicoding_learning/utils/config/config.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../models/course.dart';
 import '../../../ui/course/detail/back_button.dart';
 import '../../../ui/course/detail/bookmark_button.dart';
 import '../../../utils/helper.dart';
-
-var bigSizeText = 25.0;
-var middleSizeText = 20.0;
-var smallSizeText = 16.0;
 
 class DetailMobilePage extends StatelessWidget {
   final CourseModel course;
@@ -129,7 +126,7 @@ class DetailMobilePage extends StatelessWidget {
             course.name,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: bigSizeText,
+              fontSize: Config.bigSizeText,
             ),
           ),
           const SizedBox(height: 40.0),
@@ -148,7 +145,7 @@ class DetailMobilePage extends StatelessWidget {
               Text(
                 "Technology:",
                 style: TextStyle(
-                  fontSize: middleSizeText,
+                  fontSize: Config.middleSizeText,
                   color: AppColors.nonPrimaryText,
                 ),
               ),
@@ -174,7 +171,7 @@ class DetailMobilePage extends StatelessWidget {
               Text(
                 "Description",
                 style: TextStyle(
-                  fontSize: middleSizeText,
+                  fontSize: Config.middleSizeText,
                   color: AppColors.nonPrimaryText,
                 ),
               ),
@@ -195,7 +192,7 @@ class DetailMobilePage extends StatelessWidget {
               Text(
                 "Reviewer's",
                 style: TextStyle(
-                  fontSize: middleSizeText,
+                  fontSize: Config.middleSizeText,
                 ),
               ),
             ],
@@ -231,7 +228,7 @@ class _InfoColumn extends StatelessWidget {
         Text(
           label,
           style: TextStyle(
-            fontSize: smallSizeText,
+            fontSize: Config.smallSizeText,
           ),
         ),
       ],
