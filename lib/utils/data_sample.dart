@@ -95,8 +95,8 @@ var courseList = [
 ];
 
 var user = User(
-      fullName: "Isabella Jane Wilson",
-      photoProfile: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      fullName: "Anabila Jane Wilson",
+      photoProfile: "https://plus.unsplash.com/premium_photo-1683133457579-baf5689d4d73?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 );
 
 var newsBanner = [
