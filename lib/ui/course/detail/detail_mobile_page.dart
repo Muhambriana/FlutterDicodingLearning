@@ -113,7 +113,7 @@ class DetailMobilePage extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: BookmarkButton(
                   iconSize: 35,
                   isBookmark: course.isBookmark,
