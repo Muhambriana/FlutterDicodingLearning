@@ -31,6 +31,7 @@ var courseList = [
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-6b9ebfddee1fdff79d912103c8c9f3ca20240507113604.png',
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:52ca3572e52e2fce90b6d319ed2a2a3820210929165834.png'
     ],
+    isBookmark: false,
   ),
   CourseModel(
     name: 'Belajar Fundamental Aplikasi Flutter',
@@ -56,6 +57,7 @@ var courseList = [
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-df64c85f2f70611d293966b01f8c5a9f20240615153103.png',
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:69dd63f4d64d2b90261e774ceedc217120230122164413.png',
     ],
+    isBookmark: false,
   ),
   CourseModel(
     name: 'Belajar Prinsip Pemrograman SOLID',
@@ -87,5 +89,6 @@ var courseList = [
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-f91f994997e71c054011f54994dce6ce20241114200929.png',
       'https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:a24fed3e930193c1117094810f2fbb2e20230811104511.png',
     ],
+    isBookmark: true,
   ),
 ];

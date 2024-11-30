@@ -14,6 +14,7 @@ class CourseModel {
   String banner;
   List<PathParent> technology;
   List<String> reviewersPhoto;
+  bool isBookmark;
 
 
   CourseModel({
@@ -29,5 +30,6 @@ class CourseModel {
     required this.banner,
     required this.technology,
     required this.reviewersPhoto,
+    required this.isBookmark
   });
 }
