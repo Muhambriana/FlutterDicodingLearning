@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const AppBar(),
-              const SizedBox(height: 10,),
+              const SizedBox(height: 20,),
               _buildCarousel(newsBanner),
               const SizedBox(height: 10,),
               const CourseList()
