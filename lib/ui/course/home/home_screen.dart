@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dicoding_learning/utils/app_colors.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../detail/course_detail_screen.dart';
 import '../../../models/course.dart';
 import '../../../utils/data_sample.dart';
@@ -49,7 +50,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 20,),
               _buildCarousel(newsBanner),
               const SizedBox(height: 10,),
-              const CourseList()
+              const LearningPathGrid(itemCount: 2),
             ],
           ),
         ),
@@ -166,7 +167,6 @@ class CourseList extends StatelessWidget {
   }
 }
 
-
 class CourseCard extends StatelessWidget {
   final CourseModel course;
 
@@ -176,7 +176,7 @@ class CourseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(course: course))
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(learningPath: course))
         );
       },
       child: Padding(
@@ -261,6 +261,78 @@ class CourseCard extends StatelessWidget {
     );
   }
 }
+
+class LearningPathGrid extends StatelessWidget {
+  final int itemCount;
+
+  const LearningPathGrid({super.key, required this.itemCount});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.6,
+      child: MasonryGridView.count(
+        crossAxisCount: itemCount,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
+        itemCount: learningPathList.length,
+        itemBuilder: (context, index) {
+          final learningPath = learningPathList[index];
+
+          // Determine the size of the tile based on the index
+          final isLongTile = index % 2 == 0;
+
+          return SizedBox(
+            height: isLongTile ? 320 : 280,
+            child: InkWell(
+              onTap: () {
+                // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                //   return DetailScreen(learningPath: learningPath);
+                // }));
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                elevation: 5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(12),
+                          topRight: Radius.circular(12),
+                        ),
+                        child: Image.network(
+                          learningPath.banner,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        "${learningPath.path.name} Developer",
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
 
 
 
