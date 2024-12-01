@@ -52,6 +52,9 @@ class CourseListPage extends StatelessWidget {
                 height: 20,
               ),
               CourseList(courseList: learningPath.courseList),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
@@ -119,15 +122,14 @@ class CourseList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.71,
-      child: ListView.builder(
-        padding: EdgeInsets.zero,
-        itemCount: courseList.length,
-        itemBuilder: (context, index) {
-          return CourseCard(course: courseList[index], index: index,);
-        },
-      ),
+    return Column(
+        children: List.generate(
+            courseList.length,
+                (index) => CourseCard(
+              course: courseList[index],
+              index: index,
+            )
+        )
     );
   }
 }
