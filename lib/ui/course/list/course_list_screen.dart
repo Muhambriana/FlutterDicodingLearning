@@ -52,9 +52,6 @@ class CourseListPage extends StatelessWidget {
                 height: 20,
               ),
               CourseList(courseList: learningPath.courseList),
-              const SizedBox(
-                height: 20,
-              ),
             ],
           ),
         ),
@@ -77,42 +74,6 @@ class AppBar extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildIconNotification(bool hasUnreadNotifications) {
-    return GestureDetector(
-      onTap: () {},
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0xFF34C8E8), Color(0xFF4E4AF2)],
-              ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding: const EdgeInsets.all(10.0),
-            child: const Icon(
-              Icons.notifications,
-              size: 24,
-              color: Colors.white,
-            ),
-          ),
-          if (hasUnreadNotifications)
-            const Positioned(
-              top: 4.0,
-              right: 4.0,
-              child: CircleAvatar(
-                radius: 4.0,
-                backgroundColor: Colors.white,
-              ),
-            ),
-        ],
-      ),
-    );
-  }
 }
 
 class CourseList extends StatelessWidget {
@@ -122,14 +83,15 @@ class CourseList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-        children: List.generate(
-            courseList.length,
-                (index) => CourseCard(
-              course: courseList[index],
-              index: index,
-            )
-        )
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.71,
+      child: ListView.builder(
+        padding: EdgeInsets.zero,
+        itemCount: courseList.length,
+        itemBuilder: (context, index) {
+          return CourseCard(course: courseList[index], index: index,);
+        },
+      ),
     );
   }
 }
