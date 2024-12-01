@@ -115,31 +115,31 @@ var learningPathList = [
   LearningPath(
     path: PathParent.multiPlatform,
     desc: "Kurikulum disusun oleh Dicoding bersama Google beserta pelaku industri Multi-Platform App Development. Siswa dipersiapkan untuk menjadi Multi-Platform App Developer sesuai standar kebutuhan industri.",
-    banner: "https://instagram.fcgk43-1.fna.fbcdn.net/v/t51.29350-15/469036808_608062958357522_3453328994396907197_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fcgk43-1.fna.fbcdn.net&_nc_cat=102&_nc_ohc=Pr-Dtbl4mlUQ7kNvgGuIb1U&_nc_gid=2eeb5d4e16e942cf805eadfc3bad5e58&edm=AONqaaQBAAAA&ccb=7-5&ig_cache_key=MzUxMzMwNzc5ODc3MDEzNDU3MA%3D%3D.3-ccb7-5&oh=00_AYA_MSQmXj3DiauFo96sq0e7XbyFBaBRGzu49JnFB5b9FQ&oe=6751E80D&_nc_sid=4e3341",
+    banner: "https://images.unsplash.com/photo-1733042204529-b98fd24941a3?q=80&w=2028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ),
   LearningPath(
     path: PathParent.backEndJavaScript,
     desc: "Kurikulum disusun oleh Dicoding bersama AWS beserta pelaku industri Back-End Development. Siswa dipersiapkan untuk menjadi Back-End Developer dengan JavaScript sesuai kebutuhan industri.",
-    banner: "https://instagram.fcgk43-1.fna.fbcdn.net/v/t51.29350-15/468813088_417576148097759_1022218179250416342_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fcgk43-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=yoJ9WPgnCSEQ7kNvgGNX5yY&_nc_gid=2eeb5d4e16e942cf805eadfc3bad5e58&edm=AONqaaQBAAAA&ccb=7-5&ig_cache_key=MzUxMzMwNzQyNTkwNDgxMjYwMA%3D%3D.3-ccb7-5&oh=00_AYBv0SD_hvGCPsDskX3EsS-X5WmKYcQWA_DrqCYzhPNmMQ&oe=6751D53E&_nc_sid=4e3341",
+    banner: "https://images.unsplash.com/photo-1733042205466-6012b7bb8ef5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ),
   LearningPath(
       path: PathParent.ios,
       desc: "Kurikulum disusun oleh Dicoding dan pelaku industri di bidang iOS Development. Siswa dipersiapkan untuk menjadi iOS Developer sesuai standar kebutuhan industri.",
-      banner: "https://instagram.fcgk43-1.fna.fbcdn.net/v/t51.29350-15/468718178_1288309049254604_8944645682557044018_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fcgk43-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=4Lwjqc2piWUQ7kNvgHAeD7D&_nc_gid=95fd30abb77b41ef8b8e695187d518b2&edm=AP4sbd4BAAAA&ccb=7-5&ig_cache_key=MzUxMzMwNzA0MTkyNDczMDY2NQ%3D%3D.3-ccb7-5&oh=00_AYB5GyRMLyN9gnPOwAxHVs0g_9JdV6EdbAIf_abl_XS9Pg&oe=6751ECF4&_nc_sid=7a9f4b",
+      banner: "https://images.unsplash.com/photo-1733042204519-ba5ef281c7df?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ),
   LearningPath(
     path: PathParent.machineLearning,
     desc: "Kurikulum lengkap yang disusun oleh Dicoding bersama IBM beserta pelaku industri. Siswa dipersiapkan untuk menjadi Machine Learning Engineer sesuai standar kebutuhan industri.",
-    banner: "https://instagram.fcgk43-1.fna.fbcdn.net/v/t51.29350-15/468812322_430597030104507_6413531474572697719_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fcgk43-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=BLD6qsvd5vYQ7kNvgESrPxO&_nc_gid=95fd30abb77b41ef8b8e695187d518b2&edm=AP4sbd4BAAAA&ccb=7-5&ig_cache_key=MzUxMzMwNzYyNjg1NDAzNTI1OA%3D%3D.3-ccb7-5&oh=00_AYCJ2jMbdwG-kCw0Kuwo_3X9EpKmFbjr6dkM6z4GFCRDwA&oe=6751F59B&_nc_sid=7a9f4b",
+    banner: "https://images.unsplash.com/photo-1733042205387-4b611a23ca8b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ),
   LearningPath(
     path: PathParent.android,
     desc: "Kurikulum didesain dengan persetujuan dari Tim Google Android untuk mempersiapkan developer Android standar Global. Dicoding adalah Google Developer Authorized Training Partner.",
-    banner: "https://instagram.fcgk43-1.fna.fbcdn.net/v/t51.29350-15/468899459_1083930800189992_6761144895368391932_n.jpg?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fcgk43-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=dfyGiy-VoWgQ7kNvgHiujo2&_nc_gid=2eeb5d4e16e942cf805eadfc3bad5e58&edm=AONqaaQBAAAA&ccb=7-5&ig_cache_key=MzUxMzMwNzk4NjI3MjIzNzQxNQ%3D%3D.3-ccb7-5&oh=00_AYBpedHQVibOt7nxJ0EvAr5Mi50V5XroDt1nWq0SuiJwWQ&oe=6751DEF4&_nc_sid=4e3341",
+    banner: "https://images.unsplash.com/photo-1733042204531-f68810220738?q=80&w=1924&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ),
   LearningPath(
       path: PathParent.devOps,
       desc: "Kurikulum lengkap yang didesain oleh tim expert Dicoding bersama para praktisi industri. Siswa dipersiapkan untuk menjadi seorang DevOps Engineer berstandar global.",
-      banner: "https://instagram.fcgk43-1.fna.fbcdn.net/v/t51.29350-15/468812325_1603624660243006_4581586059861065178_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fcgk43-1.fna.fbcdn.net&_nc_cat=110&_nc_ohc=zBt8jNEtTKkQ7kNvgE9ODKJ&_nc_gid=2eeb5d4e16e942cf805eadfc3bad5e58&edm=AONqaaQBAAAA&ccb=7-5&ig_cache_key=MzUxMzMwNzI2MDczMzEzODMyNw%3D%3D.3-ccb7-5&oh=00_AYDtc4DZqxEM_BVGBh0xNDSsDaeXE6hVGQ4Mq23YcTTdeA&oe=6751CD83&_nc_sid=4e3341",
+      banner: "https://images.unsplash.com/photo-1733042206406-b751cdc7a2b4?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ),
 ];
