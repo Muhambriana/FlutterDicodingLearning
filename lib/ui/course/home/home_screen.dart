@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dicoding_learning/models/learning_path.dart';
+import 'package:flutter_dicoding_learning/ui/course/list/course_list_screen.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../../../utils/data_sample.dart';
 import '../../../utils/helper.dart';
-
 
 class HomePage extends StatelessWidget {
 
@@ -186,9 +186,9 @@ class LearningPathGrid extends StatelessWidget {
           height: isLongTile ? 220 : 180,
           child: InkWell(
             onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //   return DetailScreen(learningPath: learningPath);
-              // }));
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return CourseListPage(learningPath: learningPath);
+              }));
             },
             child: Card(
               shape: RoundedRectangleBorder(
