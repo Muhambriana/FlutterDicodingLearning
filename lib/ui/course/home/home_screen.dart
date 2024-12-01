@@ -1,9 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dicoding_learning/utils/app_colors.dart';
+import 'package:flutter_dicoding_learning/models/learning_path.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import '../detail/course_detail_screen.dart';
-import '../../../models/course.dart';
 import '../../../utils/data_sample.dart';
 import '../../../utils/helper.dart';
 
@@ -48,43 +46,13 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20,),
-              _buildCarousel(newsBanner),
+              const CarouselNews(),
               const SizedBox(height: 10,),
               const LearningPathGrid(itemCount: 2),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildCarousel(List<String> newsBanner) {
-    return Builder(
-      builder: (context) {
-        return CarouselSlider.builder(
-          itemCount: newsBanner.length,
-          itemBuilder: (context, index, realIndex) {
-            return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  image: AssetImage(newsBanner[index]),
-                  fit: BoxFit.fitWidth,
-                ),
-              ),
-            );
-          },
-          options: CarouselOptions(
-            height: Utils.getHeightByDevice(context, 0.200),
-            enlargeCenterPage: true,
-            autoPlay: true,
-            viewportFraction: 0.95,
-            autoPlayAnimationDuration: const Duration(milliseconds: 800),
-            autoPlayCurve: Curves.fastOutSlowIn,
-          ),
-        );
-      },
     );
   }
 }
@@ -154,109 +122,32 @@ class AppBar extends StatelessWidget {
   }
 }
 
-class CourseList extends StatelessWidget {
-  const CourseList({super.key});
+class CarouselNews extends StatelessWidget {
+  const CarouselNews({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: courseList.map((course) {
-        return CourseCard(course: course);
-      }).toList(),
-    );
-  }
-}
-
-class CourseCard extends StatelessWidget {
-  final CourseModel course;
-
-  const CourseCard({required this.course, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(course: course))
-        );
-      },
-      child: Padding(
-        padding: const EdgeInsets.only(top: 3.0, bottom: 3.0),
-        child: Card(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                    flex: 1,
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        child: Image.network(course.banner)
-                    )
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          course.name,
-                          style: const TextStyle(fontSize: 16.0),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.star_rate_outlined,
-                              color: Colors.amber,
-                            ),
-                            const SizedBox(width: 8.0),
-                            Text(
-                              course.rating.toString(),
-                              style: Utils.getInformationTextStyle(),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10.0),
-                                child: LinearProgressIndicator(
-                                  value: course.progress/100, // Progress value /100
-                                  color: AppColors.primaryColor,
-                                  backgroundColor: Colors.grey.shade600,
-                                  minHeight: 10,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 8.0),
-                            Expanded(
-                                flex: 1,
-                                child: Text(
-                                  "${course.progress.toInt()}%",
-                                  style: Utils.getInformationTextStyle(),
-                                )
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
+    return CarouselSlider.builder(
+      itemCount: newsBanner.length,
+      itemBuilder: (context, index, realIndex) {
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 5),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(
+              image: AssetImage(newsBanner[index]),
+              fit: BoxFit.fitWidth,
             ),
           ),
-        ),
+        );
+      },
+      options: CarouselOptions(
+        height: Utils.getHeightByDevice(context, 0.200),
+        enlargeCenterPage: true,
+        autoPlay: true,
+        viewportFraction: 0.95,
+        autoPlayAnimationDuration: const Duration(milliseconds: 800),
+        autoPlayCurve: Curves.fastOutSlowIn,
       ),
     );
   }
@@ -282,53 +173,62 @@ class LearningPathGrid extends StatelessWidget {
           // Determine the size of the tile based on the index
           final isLongTile = index % 2 == 0;
 
-          return SizedBox(
-            height: isLongTile ? 320 : 280,
-            child: InkWell(
-              onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return DetailScreen(learningPath: learningPath);
-                // }));
-              },
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                elevation: 5,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+          return _buildGridListContent(isLongTile, learningPath);
+        },
+      ),
+    );
+  }
+
+  Widget _buildGridListContent(bool isLongTile, LearningPath learningPath) {
+    return Builder(
+      builder: (context) {
+        return SizedBox(
+          height: isLongTile ? 220 : 180,
+          child: InkWell(
+            onTap: () {
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return DetailScreen(learningPath: learningPath);
+              // }));
+            },
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              elevation: 5,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12.0),
+                child: Stack(
+                  fit: StackFit.expand,
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(12),
-                        ),
-                        child: Image.network(
-                          learningPath.banner,
-                          fit: BoxFit.cover,
+                    Image.network(
+                      learningPath.banner,
+                      fit: BoxFit.cover,
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: MediaQuery.of(context).size.height,
+                        height: 60,
+                        color: Colors.black.withOpacity(0.8),
+                        child: Center(
+                          child: Text(
+                            "${learningPath.path.name} Developer",
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        "${learningPath.path.name} Developer",
-                        style: const TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
+                    )
                   ],
                 ),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      }
     );
   }
 }
