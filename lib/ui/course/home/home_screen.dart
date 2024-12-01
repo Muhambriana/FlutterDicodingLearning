@@ -176,7 +176,7 @@ class CourseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(learningPath: course))
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(course: course))
         );
       },
       child: Padding(
