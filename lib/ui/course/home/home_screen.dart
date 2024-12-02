@@ -171,12 +171,17 @@ class LearningPathGrid extends StatelessWidget {
         // Determine the size of the tile based on the index
         final isLongTile = index % 2 == 0;
 
-        return _buildGridListContent(isLongTile, learningPath);
+        final margin =
+        index == 0 ? EdgeInsets.zero:
+        index == (courseList.length - 1) ? const EdgeInsets.symmetric(vertical: 10) :
+        const EdgeInsets.only(top: 10);
+
+        return _buildGridListContent(isLongTile, learningPath, margin);
       },
     );
   }
 
-  Widget _buildGridListContent(bool isLongTile, LearningPath learningPath) {
+  Widget _buildGridListContent(bool isLongTile, LearningPath learningPath, EdgeInsetsGeometry margin) {
     return Builder(
       builder: (context) {
         return SizedBox(
@@ -188,6 +193,7 @@ class LearningPathGrid extends StatelessWidget {
               }));
             },
             child: Card(
+              margin: margin,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
