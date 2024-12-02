@@ -45,7 +45,7 @@ class CourseListPage extends StatelessWidget {
               height: 20,
             ),
             Expanded(
-                child: CourseList(courseList: learningPath.courseList),
+              child: CourseList(courseList: learningPath.courseList),
             ),
           ],
         ),
@@ -81,7 +81,16 @@ class CourseList extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: courseList.length,
       itemBuilder: (context, index) {
-        return CourseCard(course: courseList[index], index: index,);
+
+        EdgeInsetsGeometry padding =
+        index == 0 ? EdgeInsets.zero:
+        index == (courseList.length - 1) ? const EdgeInsets.symmetric(vertical: 10) :
+        const EdgeInsets.only(top: 10);
+
+        return CourseCard(
+          course: courseList[index],
+          padding: padding,
+        );
       },
     );
   }
@@ -89,9 +98,9 @@ class CourseList extends StatelessWidget {
 
 class CourseCard extends StatelessWidget {
   final CourseModel course;
-  final int index;
+  final EdgeInsetsGeometry padding;
 
-  const CourseCard({required this.course, required this.index, super.key});
+  const CourseCard({required this.course, required this.padding, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +112,7 @@ class CourseCard extends StatelessWidget {
                 builder: (context) => DetailScreen(course: course)));
       },
       child: Padding(
-        padding: (index == 0) ? EdgeInsets.zero : const EdgeInsets.only(top: 10),
+        padding: padding,
         child: Card(
           margin: EdgeInsets.zero, // Remove default margin of the Card
           child: Padding(
