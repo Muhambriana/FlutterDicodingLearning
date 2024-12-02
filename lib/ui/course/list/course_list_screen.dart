@@ -82,7 +82,7 @@ class CourseList extends StatelessWidget {
       itemCount: courseList.length,
       itemBuilder: (context, index) {
 
-        EdgeInsetsGeometry margin =
+        final margin =
         index == 0 ? EdgeInsets.zero:
         index == (courseList.length - 1) ? const EdgeInsets.symmetric(vertical: 10) :
         const EdgeInsets.only(top: 10);
