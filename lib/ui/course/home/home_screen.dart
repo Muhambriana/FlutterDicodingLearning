@@ -161,27 +161,22 @@ class LearningPathGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MasonryGridView.count(
+      padding: EdgeInsets.zero,
       crossAxisCount: itemCount,
       mainAxisSpacing: 8,
       crossAxisSpacing: 8,
       itemCount: learningPathList.length,
       itemBuilder: (context, index) {
-        final learningPath = learningPathList[index];
-
         // Determine the size of the tile based on the index
         final isLongTile = index % 2 == 0;
+        final learningPath = learningPathList[index];
 
-        final margin =
-        index == 0 ? EdgeInsets.zero:
-        index == (courseList.length - 1) ? const EdgeInsets.symmetric(vertical: 10) :
-        const EdgeInsets.only(top: 10);
-
-        return _buildGridListContent(isLongTile, learningPath, margin);
+        return _buildGridListContent(isLongTile, learningPath);
       },
     );
   }
 
-  Widget _buildGridListContent(bool isLongTile, LearningPath learningPath, EdgeInsetsGeometry margin) {
+  Widget _buildGridListContent(bool isLongTile, LearningPath learningPath) {
     return Builder(
       builder: (context) {
         return SizedBox(
@@ -193,7 +188,7 @@ class LearningPathGrid extends StatelessWidget {
               }));
             },
             child: Card(
-              margin: margin,
+              margin:  EdgeInsets.zero,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
