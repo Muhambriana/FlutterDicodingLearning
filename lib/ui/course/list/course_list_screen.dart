@@ -15,45 +15,39 @@ class CourseListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const AppBar(),
-              const SizedBox(
-                height: 30,
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const AppBar(),
+            const SizedBox(
+              height: 30,
+            ),
+            const Text(
+              "About this learning path",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: AppColors.nonPrimaryText,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Text(
-                    "About this learning path",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.nonPrimaryText,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    learningPath.desc,
-                    style: const TextStyle(
-                      color: AppColors.nonPrimaryText,
-                    ),
-                  ),
-                ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              learningPath.desc,
+              style: const TextStyle(
+                color: AppColors.nonPrimaryText,
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              CourseList(courseList: learningPath.courseList),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+                child: CourseList(courseList: learningPath.courseList),
+            ),
+          ],
         ),
       ),
     );
@@ -83,15 +77,12 @@ class CourseList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.71,
-      child: ListView.builder(
-        padding: EdgeInsets.zero,
-        itemCount: courseList.length,
-        itemBuilder: (context, index) {
-          return CourseCard(course: courseList[index], index: index,);
-        },
-      ),
+    return ListView.builder(
+      padding: EdgeInsets.zero,
+      itemCount: courseList.length,
+      itemBuilder: (context, index) {
+        return CourseCard(course: courseList[index], index: index,);
+      },
     );
   }
 }
