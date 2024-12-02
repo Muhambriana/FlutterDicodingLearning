@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20,),
             const CarouselNews(),
-            const SizedBox(height: 10,),
+            const SizedBox(height: 20,),
             const Expanded(
                 child: LearningPathGrid(itemCount: 2)
             ),
