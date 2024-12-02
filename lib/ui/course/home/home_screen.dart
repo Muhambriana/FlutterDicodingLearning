@@ -13,44 +13,44 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const AppBar(),
-              const SizedBox(height: 20,),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Hey, ${user.fullName}",
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const AppBar(),
+            const SizedBox(height: 20,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Hey, ${user.fullName}",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
                     ),
-                    const Text(
-                      "Learn new Skills today!",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w100,
-                      ),
+                  ),
+                  const Text(
+                    "Learn new Skills today!",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w100,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 20,),
-              const CarouselNews(),
-              const SizedBox(height: 10,),
-              const LearningPathGrid(itemCount: 2),
-            ],
-          ),
+            ),
+            const SizedBox(height: 20,),
+            const CarouselNews(),
+            const SizedBox(height: 10,),
+            const Expanded(
+                child: LearningPathGrid(itemCount: 2)
+            ),
+          ],
         ),
       ),
     );
@@ -160,22 +160,19 @@ class LearningPathGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.6,
-      child: MasonryGridView.count(
-        crossAxisCount: itemCount,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        itemCount: learningPathList.length,
-        itemBuilder: (context, index) {
-          final learningPath = learningPathList[index];
+    return MasonryGridView.count(
+      crossAxisCount: itemCount,
+      mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
+      itemCount: learningPathList.length,
+      itemBuilder: (context, index) {
+        final learningPath = learningPathList[index];
 
-          // Determine the size of the tile based on the index
-          final isLongTile = index % 2 == 0;
+        // Determine the size of the tile based on the index
+        final isLongTile = index % 2 == 0;
 
-          return _buildGridListContent(isLongTile, learningPath);
-        },
-      ),
+        return _buildGridListContent(isLongTile, learningPath);
+      },
     );
   }
 
