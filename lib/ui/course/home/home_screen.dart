@@ -14,39 +14,41 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+        padding:  EdgeInsets.fromLTRB(
+            Utils.getWidthByDevice(context, 0.045),
+            Utils.getHeightByDevice(context, 0.02),
+            Utils.getWidthByDevice(context, 0.045),
+            0
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const AppBar(),
-            const SizedBox(height: 20,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Hey, ${user.fullName}",
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
+            Utils.getSizeBoxAsMarginY(context, 0.02),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Hey, ${user.fullName}",
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
                   ),
-                  const Text(
-                    "Learn new Skills today!",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w100,
-                    ),
+                ),
+                const Text(
+                  "Learn new Skills today!",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w100,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            const SizedBox(height: 20,),
+            Utils.getSizeBoxAsMarginY(context, 0.02),
             const CarouselNews(),
-            const SizedBox(height: 20,),
+            Utils.getSizeBoxAsMarginY(context, 0.02),
             const Expanded(
                 child: LearningPathGrid(itemCount: 2)
             ),
@@ -68,8 +70,8 @@ class AppBar extends StatelessWidget {
         children: [
           _buildIconNotification(true),
           Container(
-            width: 50,
-            height: 50,
+            width: Utils.getWidthByDevice(context, 0.1),
+            height: Utils.getHeightByDevice(context, 0.05),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
@@ -84,40 +86,44 @@ class AppBar extends StatelessWidget {
   }
 
   Widget _buildIconNotification(bool hasUnreadNotifications) {
-    return GestureDetector(
-      onTap: () {
+    return Builder(
+      builder: (context) {
+        return GestureDetector(
+          onTap: () {
 
-      },
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0xFF34C8E8), Color(0xFF4E4AF2)],
+          },
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF34C8E8), Color(0xFF4E4AF2)],
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding: const EdgeInsets.all(10.0),
+                child: const Icon(
+                  Icons.notifications,
+                  size: 24,
+                  color: Colors.white,
+                ),
               ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding: const EdgeInsets.all(10.0),
-            child: const Icon(
-              Icons.notifications,
-              size: 24,
-              color: Colors.white,
-            ),
+              if (hasUnreadNotifications)
+                Positioned(
+                  top: Utils.getHeightByDevice(context, 0.004),
+                  right: Utils.getWidthByDevice(context, 0.02),
+                  child: const CircleAvatar(
+                    radius: 4.0,
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+            ],
           ),
-          if (hasUnreadNotifications)
-            const Positioned(
-              top: 4.0,
-              right: 4.0,
-              child: CircleAvatar(
-                radius: 4.0,
-                backgroundColor: Colors.white,
-              ),
-            ),
-        ],
-      ),
+        );
+      }
     );
   }
 }
@@ -131,7 +137,7 @@ class CarouselNews extends StatelessWidget {
       itemCount: newsBanner.length,
       itemBuilder: (context, index, realIndex) {
         return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 5),
+          margin: EdgeInsets.symmetric(horizontal: Utils.getWidthByDevice(context, 0.01)),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
@@ -180,7 +186,7 @@ class LearningPathGrid extends StatelessWidget {
     return Builder(
       builder: (context) {
         return SizedBox(
-          height: isLongTile ? 220 : 180,
+          height: isLongTile ? Utils.getHeightByDevice(context, 0.25) : Utils.getHeightByDevice(context, 0.20),
           child: InkWell(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -206,7 +212,7 @@ class LearningPathGrid extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: Container(
                         width: MediaQuery.of(context).size.height,
-                        height: 60,
+                        height: Utils.getHeightByDevice(context, 0.06),
                         color: Colors.black.withOpacity(0.8),
                         child: Center(
                           child: Text(
