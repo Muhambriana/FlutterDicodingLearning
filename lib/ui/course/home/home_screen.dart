@@ -70,8 +70,8 @@ class AppBar extends StatelessWidget {
         children: [
           _buildIconNotification(true),
           Container(
-            width: Utils.getWidthByDevice(context, 0.1),
-            height: Utils.getHeightByDevice(context, 0.05),
+            width: 40,
+            height: 40,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
@@ -112,10 +112,10 @@ class AppBar extends StatelessWidget {
                 ),
               ),
               if (hasUnreadNotifications)
-                Positioned(
-                  top: Utils.getHeightByDevice(context, 0.004),
-                  right: Utils.getWidthByDevice(context, 0.02),
-                  child: const CircleAvatar(
+                const Positioned(
+                  top: 4.0,
+                  right: 4.0,
+                  child: CircleAvatar(
                     radius: 4.0,
                     backgroundColor: Colors.white,
                   ),
