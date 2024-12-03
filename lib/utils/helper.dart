@@ -10,4 +10,11 @@ class Utils {
 
   static double getWidthByDevice(BuildContext context, double number) => MediaQuery.of(context).size.width * number;
 
+  static Widget getSizeBoxAsMarginX(BuildContext context, double number) => SizedBox(
+    width:getWidthByDevice(context, number),
+  );
+
+  static Widget getSizeBoxAsMarginY(BuildContext context, double number) => SizedBox(
+    height: getHeightByDevice(context, number),
+  );
 }
