@@ -211,7 +211,7 @@ class LearningPathGrid extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
-                        width: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
                         height: Utils.getHeightByDevice(context, 0.06),
                         color: Colors.black.withOpacity(0.8),
                         child: Center(
