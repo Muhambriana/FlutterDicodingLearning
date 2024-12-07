@@ -1,3 +1,11 @@
+
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../../models/course.dart';
+import '../../../utils/app_colors.dart';
+import '../../../utils/strings.dart';
+import '../widget/bookmark_button.dart';
+import '../../../utils/helper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dicoding_learning/utils/app_colors.dart';
@@ -9,10 +17,16 @@ import '../widget/back_button.dart';
 import '../widget/bookmark_button.dart';
 import '../../../utils/helper.dart';
 
-class DetailMobilePage extends StatelessWidget {
+class DetailMobilePage extends StatefulWidget {
   final CourseModel course;
 
   const DetailMobilePage({super.key, required this.course});
+
+  @override
+  State<DetailMobilePage> createState() => _DetailMobilePageState();
+}
+
+class _DetailMobilePageState extends State<DetailMobilePage> {
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +40,7 @@ class DetailMobilePage extends StatelessWidget {
                 Stack(
                   children: [
                     _buildBannerAndBackButton(context),
-                    _buildGradientSection(context, constraints, course),
+                    _buildGradientSection(context, constraints, widget.course),
                   ],
                 ),
               ],
@@ -36,13 +50,12 @@ class DetailMobilePage extends StatelessWidget {
       ),
     );
   }
-
   Widget _buildBannerAndBackButton(BuildContext context) {
     return Container(
       alignment: Alignment.bottomCenter,
       child: Stack(
         children: [
-          Image.network(course.banner),
+          Image.network(widget.course.banner),
           const SafeArea(
             child: Padding(
               padding: EdgeInsets.all(20.0),
@@ -102,7 +115,7 @@ class DetailMobilePage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const Icon(
-                FontAwesomeIcons.route
+                  FontAwesomeIcons.route
               ),
               const SizedBox(width: 10.0),
               Expanded(
@@ -182,8 +195,8 @@ class DetailMobilePage extends StatelessWidget {
             course.description,
             textAlign: TextAlign.start,
             style: const TextStyle(
-                fontSize: 15,
-                color: AppColors.nonPrimaryText,
+              fontSize: 15,
+              color: AppColors.nonPrimaryText,
             ),
           ),
           const SizedBox(height: 20.0),
@@ -302,9 +315,3 @@ Widget _buildCarousel(List<String> reviewersPhoto) {
     },
   );
 }
-
-
-
-
-
-
