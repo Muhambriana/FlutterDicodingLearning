@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dicoding_learning/ui/course/widget/technology_list.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../models/course.dart';
-import '../../../utils/app_colors.dart';
-import '../widget/bookmark_button.dart';
 import '../../../utils/helper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_dicoding_learning/utils/config/config.dart';
-import '../widget/back_button.dart';
-import '../widget/column_info.dart';
 
 class CarouselReviewers extends StatelessWidget {
   final List<String> reviewersPhoto;

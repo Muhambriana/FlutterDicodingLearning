@@ -6,7 +6,6 @@ import '../../../models/course.dart';
 import '../../../utils/app_colors.dart';
 import '../widget/bookmark_button.dart';
 import '../../../utils/helper.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_dicoding_learning/utils/config/config.dart';
 import '../widget/back_button.dart';
 import '../widget/carousel_reviewers.dart';

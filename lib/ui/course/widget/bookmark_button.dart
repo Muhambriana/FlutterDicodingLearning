@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dicoding_learning/utils/app_colors.dart';
 import 'package:flutter_dicoding_learning/utils/widget/dicoding_button.dart';
 
 class BookmarkButton extends StatefulWidget {

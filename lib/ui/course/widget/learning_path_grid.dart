@@ -3,7 +3,6 @@ import 'package:flutter_dicoding_learning/models/learning_path.dart';
 import 'package:flutter_dicoding_learning/ui/course/list/course_list_screen.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../../../utils/data_sample.dart';
-import '../../../utils/helper.dart';
 
 class LearningPathGrid extends StatelessWidget {
 
