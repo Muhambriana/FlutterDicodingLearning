@@ -1,21 +1,16 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dicoding_learning/ui/course/widget/technology_list.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../models/course.dart';
 import '../../../utils/app_colors.dart';
-import '../../../utils/strings.dart';
 import '../widget/bookmark_button.dart';
 import '../../../utils/helper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_dicoding_learning/utils/app_colors.dart';
 import 'package:flutter_dicoding_learning/utils/config/config.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../../../models/course.dart';
 import '../widget/back_button.dart';
-import '../widget/bookmark_button.dart';
-import '../../../utils/helper.dart';
+import '../widget/carousel_reviewers.dart';
+import '../widget/column_info.dart';
 
 class DetailMobilePage extends StatefulWidget {
   final CourseModel course;
@@ -72,8 +67,7 @@ class _DetailMobilePageState extends State<DetailMobilePage> {
     );
   }
 
-  Widget _buildGradientSection(
-      BuildContext context, BoxConstraints constraints, CourseModel course) {
+  Widget _buildGradientSection(BuildContext context, BoxConstraints constraints, CourseModel course) {
     return ConstrainedBox(
       constraints: BoxConstraints(
           minWidth: constraints.maxWidth, minHeight: constraints.maxHeight),
@@ -143,15 +137,15 @@ class _DetailMobilePageState extends State<DetailMobilePage> {
             ),
           ),
           const SizedBox(height: 40.0),
-          _InfoColumn(icon: FontAwesomeIcons.star, label: course.rating.toString(), iconColor: Colors.amber,),
+          ColumnInfo(icon: FontAwesomeIcons.star, label: course.rating.toString(), iconColor: Colors.amber,),
           const SizedBox(height: 10.0),
-          _InfoColumn(icon: FontAwesomeIcons.clock, label: "${course.averageTimeToFinish} Jam"),
+          ColumnInfo(icon: FontAwesomeIcons.clock, label: "${course.averageTimeToFinish} Jam"),
           const SizedBox(height: 10.0),
-          _InfoColumn(icon: FontAwesomeIcons.medal, label: course.courseLevel.name),
+          ColumnInfo(icon: FontAwesomeIcons.medal, label: course.courseLevel.name),
           const SizedBox(height: 10.0),
-          _InfoColumn(icon: FontAwesomeIcons.book, label: "${course.totalModules} Modul Belajar"),
+          ColumnInfo(icon: FontAwesomeIcons.book, label: "${course.totalModules} Modul Belajar"),
           const SizedBox(height: 10.0),
-          _InfoColumn(icon: FontAwesomeIcons.peopleGroup, label: "${course.totalStudents} Siswa Terdaftar"),
+          ColumnInfo(icon: FontAwesomeIcons.peopleGroup, label: "${course.totalStudents} Siswa Terdaftar"),
           const SizedBox(height: 20.0),
           Row(
             children: [
@@ -171,7 +165,7 @@ class _DetailMobilePageState extends State<DetailMobilePage> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: course.technology
-                        .map((techName) => _ListTechnology(techName: techName.name))
+                        .map((techName) => TechnologyList(techName: techName.name))
                         .toList(),
                   ),
                 ),
@@ -212,106 +206,10 @@ class _DetailMobilePageState extends State<DetailMobilePage> {
           ),
           const SizedBox(height: 10.0),
           Expanded(
-            child: _buildCarousel(course.reviewersPhoto),
+            child: CarouselReviewers(reviewersPhoto: course.reviewersPhoto,),
           ),
         ],
       ),
     );
   }
-}
-
-class _InfoColumn extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final Color? iconColor;
-
-  const _InfoColumn({required this.icon, required this.label, this.iconColor});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          icon,
-          color: iconColor ?? Colors.white,
-        ),
-        const SizedBox(
-          width: 15,
-        ),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: Config.smallSizeText,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _ListTechnology extends StatelessWidget {
-  final String techName;
-
-  const _ListTechnology({required this.techName});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(10),
-          ),
-          border: Border.all(
-            color: AppColors.primaryBlue,
-            width: 2.5,
-          ),
-        ),
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Text(
-              techName,
-              textAlign: TextAlign.start,
-              style: const TextStyle(
-                fontSize: 14,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-Widget _buildCarousel(List<String> reviewersPhoto) {
-  return Builder(
-    builder: (context) {
-      return CarouselSlider.builder(
-        itemCount: reviewersPhoto.length,
-        itemBuilder: (context, index, realIndex) {
-          return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 5),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              image: DecorationImage(
-                image: NetworkImage(reviewersPhoto[index]),
-                fit: BoxFit.cover,
-              ),
-            ),
-          );
-        },
-        options: CarouselOptions(
-          height: Utils.getHeightByDevice(context, 0.15),
-          enlargeCenterPage: true,
-          autoPlay: true,
-          viewportFraction: 0.3,
-          autoPlayAnimationDuration: const Duration(milliseconds: 800),
-          autoPlayCurve: Curves.fastOutSlowIn,
-        ),
-      );
-    },
-  );
 }
