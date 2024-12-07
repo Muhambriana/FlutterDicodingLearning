@@ -6,35 +6,57 @@ import '../../../utils/data_sample.dart';
 import '../../../utils/helper.dart';
 
 class LearningPathGrid extends StatelessWidget {
-  final int itemCount;
 
-  const LearningPathGrid({super.key, required this.itemCount});
+  const LearningPathGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: MasonryGridView.count(
-        padding: EdgeInsets.zero,
-        crossAxisCount: itemCount,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        itemCount: learningPathList.length,
-        itemBuilder: (context, index) {
-          // Determine the size of the tile based on the index
-          final isLongTile = index % 2 == 0;
-          final learningPath = learningPathList[index];
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          int getItemCount () {
+            if (constraints.maxWidth <= 600) {
+              return 2;
+            } else if (constraints.maxWidth <= 1200) {
+              return 3;
+            } else {
+              return 4;
+            }
+          }
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.6,
+            child: MasonryGridView.count(
+              crossAxisCount: getItemCount(),
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+              itemCount: learningPathList.length,
+              itemBuilder: (context, index) {
+                final learningPath = learningPathList[index];
 
-          return _buildGridListContent(isLongTile, learningPath);
-        },
-      ),
+                // Determine the size of the tile based on the index
+                final isLongTile = index % 2 == 0;
+
+                return _buildGridListContent(isLongTile, learningPath, getItemCount());
+              },
+            ),
+          );
+        }
     );
   }
 
-  Widget _buildGridListContent(bool isLongTile, LearningPath learningPath) {
+  Widget _buildGridListContent(bool isLongTile, LearningPath learningPath, int totalItemCount) {
+    double getHeight() {
+      if (totalItemCount == 2) {
+        return isLongTile ? 220 : 180;
+      } else if (totalItemCount == 3) {
+        return isLongTile ? 370 : 330;
+      } else {
+        return isLongTile ? 520 : 480;
+      }
+    }
     return Builder(
         builder: (context) {
           return SizedBox(
-            height: isLongTile ? Utils.getHeightByDevice(context, 0.25) : Utils.getHeightByDevice(context, 0.20),
+            height: getHeight(),
             child: InkWell(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -42,7 +64,6 @@ class LearningPathGrid extends StatelessWidget {
                 }));
               },
               child: Card(
-                margin:  EdgeInsets.zero,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -59,8 +80,8 @@ class LearningPathGrid extends StatelessWidget {
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: Utils.getHeightByDevice(context, 0.06),
+                          width: MediaQuery.of(context).size.height,
+                          height: 60,
                           color: Colors.black.withOpacity(0.8),
                           child: Center(
                             child: Text(
