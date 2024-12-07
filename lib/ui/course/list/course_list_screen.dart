@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dicoding_learning/models/learning_path.dart';
-import 'package:flutter_dicoding_learning/ui/course/detail/back_button.dart';
+import 'package:flutter_dicoding_learning/ui/course/widget/back_button.dart';
 
 import '../../../models/course.dart';
 import '../../../utils/app_colors.dart';

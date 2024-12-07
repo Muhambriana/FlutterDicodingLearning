@@ -5,8 +5,8 @@ import 'package:flutter_dicoding_learning/utils/config/config.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../models/course.dart';
-import '../../../ui/course/detail/back_button.dart';
-import '../../../ui/course/detail/bookmark_button.dart';
+import '../widget/back_button.dart';
+import '../widget/bookmark_button.dart';
 import '../../../utils/helper.dart';
 
 class DetailMobilePage extends StatelessWidget {

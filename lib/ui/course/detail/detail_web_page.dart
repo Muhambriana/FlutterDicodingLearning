@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../../../models/course.dart';
 import '../../../utils/strings.dart';
-import '../../../ui/course/detail/bookmark_button.dart';
+import '../widget/bookmark_button.dart';
 import '../../../utils/helper.dart';
 
 class DetailWebPage extends StatefulWidget {
