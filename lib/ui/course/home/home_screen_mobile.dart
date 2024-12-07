@@ -5,6 +5,7 @@ import 'package:flutter_dicoding_learning/ui/course/list/course_list_screen.dart
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../../../utils/data_sample.dart';
 import '../../../utils/helper.dart';
+import '../widget/carousel_news.dart';
 import '../widget/learning_path_grid.dart';
 import '../widget/notification_button.dart';
 
@@ -86,37 +87,6 @@ class AppBar extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class CarouselNews extends StatelessWidget {
-  const CarouselNews({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-      itemCount: newsBanner.length,
-      itemBuilder: (context, index, realIndex) {
-        return Container(
-          margin: EdgeInsets.symmetric(horizontal: Utils.getWidthByDevice(context, 0.01)),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            image: DecorationImage(
-              image: AssetImage(newsBanner[index]),
-              fit: BoxFit.fitWidth,
-            ),
-          ),
-        );
-      },
-      options: CarouselOptions(
-        height: Utils.getHeightByDevice(context, 0.200),
-        enlargeCenterPage: true,
-        autoPlay: true,
-        viewportFraction: 0.95,
-        autoPlayAnimationDuration: const Duration(milliseconds: 800),
-        autoPlayCurve: Curves.fastOutSlowIn,
       ),
     );
   }
