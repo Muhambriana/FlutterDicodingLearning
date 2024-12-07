@@ -23,8 +23,9 @@ class LearningPathGrid extends StatelessWidget {
             }
           }
           return SizedBox(
-            height: MediaQuery.of(context).size.height * 0.6,
             child: MasonryGridView.count(
+              shrinkWrap: constraints.maxWidth <= 600 ? false : true,
+              physics: constraints.maxWidth <= 600 ? null : const NeverScrollableScrollPhysics(),
               crossAxisCount: getItemCount(),
               mainAxisSpacing: 8,
               crossAxisSpacing: 8,
