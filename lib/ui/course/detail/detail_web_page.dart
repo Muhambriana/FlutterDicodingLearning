@@ -23,36 +23,32 @@ class _DetailWebPageState extends State<DetailWebPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return SingleChildScrollView(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(50.0),
-                child: SizedBox(
-                  width: 1200,
-                  child: Column(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(50.0),
+            child: SizedBox(
+              width: 1200,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: LeftSectionContent(course: widget.course),
-                          ),
-                          const SizedBox(width: 50.0),
-                          Expanded(
-                              child: RightSectionContent(course: widget.course)
-                          ),
-                        ],
+                      Expanded(
+                        child: LeftSectionContent(course: widget.course),
+                      ),
+                      const SizedBox(width: 50.0),
+                      Expanded(
+                          child: RightSectionContent(course: widget.course)
                       ),
                     ],
                   ),
-                ),
+                ],
               ),
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }
