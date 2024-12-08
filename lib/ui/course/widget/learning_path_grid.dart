@@ -46,7 +46,7 @@ class LearningPathGrid extends StatelessWidget {
   Widget _buildGridListContent(bool isLongTile, LearningPath learningPath, int totalItemCount) {
     double getHeight() {
       if (totalItemCount == 2) {
-        return isLongTile ? 220 : 180;
+        return isLongTile ? 240 : 200;
       } else if (totalItemCount == 3) {
         return isLongTile ? 370 : 330;
       } else {
@@ -63,45 +63,75 @@ class LearningPathGrid extends StatelessWidget {
                   return CourseListPage(learningPath: learningPath);
                 }));
               },
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                elevation: 5,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12.0),
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      Image.network(
-                        learningPath.banner,
-                        fit: BoxFit.cover,
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Container(
-                          width: MediaQuery.of(context).size.height,
-                          height: 60,
-                          color: Colors.black.withOpacity(0.8),
-                          child: Center(
-                            child: Text(
-                              "${learningPath.path.name} Developer",
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              child: CardContent(learningPath: learningPath, totalItemCount: totalItemCount, isLongTile: isLongTile,)
             ),
           );
         }
+    );
+  }
+}
+
+class CardContent extends StatelessWidget {
+  final LearningPath learningPath;
+  final int totalItemCount;
+  final bool isLongTile;
+
+  const CardContent({super.key, required this.learningPath, required this.totalItemCount, required this.isLongTile});
+
+  @override
+  Widget build(BuildContext context) {
+    double getHeight() {
+      if (totalItemCount == 2) {
+        return isLongTile ? 150 : 120;
+      } else if (totalItemCount == 3) {
+        return isLongTile ? 280 : 240;
+      } else {
+        return 300;
+      }
+    }
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      elevation: 5,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12.0),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: learningPath.colorList),
+          ),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Constrained text width with alignment to the start
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 100),
+                child: Text(
+                  learningPath.path.name,
+                  style: const TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10), // Space between text and image
+              // Centered image
+              Center(
+                child: Image.asset(
+                  learningPath.banner,
+                  height: getHeight(),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
