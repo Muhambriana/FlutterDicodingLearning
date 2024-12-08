@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_dicoding_learning/models/learning_path.dart';
 import 'package:flutter_dicoding_learning/models/user.dart';
 import '../models/course.dart';
@@ -115,7 +117,11 @@ var learningPathList = [
   LearningPath(
     path: PathParent.multiPlatform,
     desc: "Kurikulum disusun oleh Dicoding bersama Google beserta pelaku industri Multi-Platform App Development. Siswa dipersiapkan untuk menjadi Multi-Platform App Developer sesuai standar kebutuhan industri.",
-    banner: "https://images.unsplash.com/photo-1733042204529-b98fd24941a3?q=80&w=2028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    banner: "assets/images/path_1.png",
+    colorList: [
+      const Color(0xffdddce1),
+      const Color(0xff322d9b)
+    ],
     courseList: courseList
         .where((course) => course.pathParent.contains(PathParent.multiPlatform))
         .toList(),
@@ -123,7 +129,12 @@ var learningPathList = [
   LearningPath(
     path: PathParent.backEndJavaScript,
     desc: "Kurikulum disusun oleh Dicoding bersama AWS beserta pelaku industri Back-End Development. Siswa dipersiapkan untuk menjadi Back-End Developer dengan JavaScript sesuai kebutuhan industri.",
-    banner: "https://images.unsplash.com/photo-1733042205466-6012b7bb8ef5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    banner: "assets/images/path_3.png",
+    colorList: [
+      const Color(0xffdddce1),
+      const Color(0xff898686),
+      const Color(0xffca6035),
+    ],
     courseList: courseList
         .where((course) => course.pathParent.contains(PathParent.backEndJavaScript))
         .toList(),
@@ -131,7 +142,12 @@ var learningPathList = [
   LearningPath(
     path: PathParent.ios,
     desc: "Kurikulum disusun oleh Dicoding dan pelaku industri di bidang iOS Development. Siswa dipersiapkan untuk menjadi iOS Developer sesuai standar kebutuhan industri.",
-    banner: "https://images.unsplash.com/photo-1733042204519-ba5ef281c7df?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    banner: "assets/images/path_2.png",
+    colorList: [
+      const Color(0xffdddce1),
+      const Color(0xffba7b16),
+      const Color(0xffc5b173),
+    ],
     courseList: courseList
         .where((course) => course.pathParent.contains(PathParent.ios))
         .toList(),
@@ -139,7 +155,12 @@ var learningPathList = [
   LearningPath(
     path: PathParent.machineLearning,
     desc: "Kurikulum lengkap yang disusun oleh Dicoding bersama IBM beserta pelaku industri. Siswa dipersiapkan untuk menjadi Machine Learning Engineer sesuai standar kebutuhan industri.",
-    banner: "https://images.unsplash.com/photo-1733042205387-4b611a23ca8b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    banner: 'assets/images/path_4.png',
+    colorList: [
+      const Color(0xffdddce1),
+      const Color(0xffd9696e),
+      const Color(0xffe2512c),
+    ],
     courseList: courseList
         .where((course) => course.pathParent.contains(PathParent.machineLearning))
         .toList(),
@@ -147,7 +168,12 @@ var learningPathList = [
   LearningPath(
     path: PathParent.android,
     desc: "Kurikulum didesain dengan persetujuan dari Tim Google Android untuk mempersiapkan developer Android standar Global. Dicoding adalah Google Developer Authorized Training Partner.",
-    banner: "https://images.unsplash.com/photo-1733042204531-f68810220738?q=80&w=1924&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    banner: 'assets/images/path_5.png',
+    colorList: [
+      const Color(0xffd3d1d4),
+      const Color(0xff5d5d67),
+      const Color(0xff0918cb),
+    ],
     courseList: courseList
         .where((course) => course.pathParent.contains(PathParent.android))
         .toList(),
@@ -155,9 +181,53 @@ var learningPathList = [
   LearningPath(
     path: PathParent.devOps,
     desc: "Kurikulum lengkap yang didesain oleh tim expert Dicoding bersama para praktisi industri. Siswa dipersiapkan untuk menjadi seorang DevOps Engineer berstandar global.",
-    banner: "https://images.unsplash.com/photo-1733042206406-b751cdc7a2b4?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    banner: 'assets/images/path_6.png',
+    colorList: [
+      const Color(0xffd3d1d4),
+      const Color(0xfff05684),
+      const Color(0xff425b86),
+    ],
     courseList: courseList
         .where((course) => course.pathParent.contains(PathParent.devOps))
         .toList(),
   ),
+  LearningPath(
+    path: PathParent.frontEndWeb,
+    desc: "Kurikulum disusun oleh Dicoding dan pelaku industri di bidang Web Development. Siswa dipersiapkan untuk menjadi Front-End Web Developer sesuai standar kebutuhan industri.",
+    banner: 'assets/images/path_7.png',
+    colorList: [
+      const Color(0xffdddce1),
+      const Color(0xff4b638f),
+      const Color(0xff09a2b1),
+    ],
+    courseList: courseList
+        .where((course) => course.pathParent.contains(PathParent.machineLearning))
+        .toList(),
+  ),
+  LearningPath(
+    path: PathParent.react,
+    desc: "Kurikulum lengkap yang didesain oleh tim expert Dicoding bersama para praktisi industri. Siswa dipersiapkan untuk menjadi seorang React Developer berstandar global.",
+    banner: 'assets/images/path_8.png',
+    colorList: [
+      const Color(0xffdddce1),
+      const Color(0xff435b87),
+      const Color(0xfff6c850),
+    ],
+    courseList: courseList
+        .where((course) => course.pathParent.contains(PathParent.android))
+        .toList(),
+  ),
+  // LearningPath(
+  //   path: PathParent.googleCloudPro,
+  //   desc: "Kurikulum didesain oleh Dicoding bersama Google dan para pelaku industri di bidang Cloud Computing. Siswa dipersiapkan untuk menjadi Google Cloud Professional sesuai kebutuhan industri.",
+  //   banner: 'assets/images/path_9.png',
+  //   colorList: [
+  //     const Color(0xffdddce1),
+  //     const Color(0xffd09c7a),
+  //     const Color(0xffc74e2d),
+  //   ],
+  //   courseList: courseList
+  //       .where((course) => course.pathParent.contains(PathParent.devOps))
+  //       .toList(),
+  // ),
 ];
