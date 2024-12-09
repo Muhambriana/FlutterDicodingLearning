@@ -22,9 +22,9 @@ class CourseListPage extends StatelessWidget {
           if (constraints.maxWidth <= 900) {
             return CourseListMobile(learningPath: learningPath,);
           } else if (constraints.maxWidth <= 1200) {
-            return CourseGridWeb(itemCount: 3, learningPath: learningPath,);
+            return CourseListWeb(itemCount: 3, learningPath: learningPath,);
           } else {
-            return CourseGridWeb(itemCount: 4, learningPath: learningPath,);
+            return CourseListWeb(itemCount: 4, learningPath: learningPath,);
           }
         },
       ),
