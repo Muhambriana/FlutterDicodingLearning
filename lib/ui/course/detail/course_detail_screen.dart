@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dicoding_learning/ui/course/detail/detail_web_page.dart';
+import 'package:flutter_dicoding_learning/ui/course/detail/course_detail_web.dart';
 import '../../../models/course.dart';
-import '../../../ui/course/detail/detail_mobile_page.dart';
+import '../../../ui/course/detail/course_detail_mobile.dart';
 
 
 class DetailScreen extends StatelessWidget {
