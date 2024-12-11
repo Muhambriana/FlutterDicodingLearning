@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dicoding_learning/ui/course/list/empty_info.dart';
-import 'package:flutter_dicoding_learning/utils/data_sample.dart';
 
 import '../../../models/course.dart';
 import '../../../models/learning_path.dart';
