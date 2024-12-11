@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dicoding_learning/ui/course/list/empty_info.dart';
+import 'package:flutter_dicoding_learning/utils/data_sample.dart';
 
 import '../../../models/course.dart';
 import '../../../models/learning_path.dart';
@@ -44,7 +46,7 @@ class CourseListMobile extends StatelessWidget {
             height: 20,
           ),
           Expanded(
-            child: CourseList(courseList: learningPath.courseList,),
+            child: learningPath.courseList.isEmpty ? const EmptyInfo() : CourseList(courseList: learningPath.courseList,),
           ),
         ],
       ),
