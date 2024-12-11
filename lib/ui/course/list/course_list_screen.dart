@@ -13,12 +13,16 @@ class CourseListPage extends StatelessWidget {
     return Scaffold(
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          if (constraints.maxWidth <= 900) {
+          if (constraints.maxWidth <= 700) {
             return CourseListMobile(learningPath: learningPath,);
-          } else if (constraints.maxWidth <= 1200) {
+          } else if (constraints.maxWidth <= 800) {
+            return CourseListWeb(itemCount: 2, learningPath: learningPath,);
+          }  else if (constraints.maxWidth <= 1000) {
             return CourseListWeb(itemCount: 3, learningPath: learningPath,);
-          } else {
+          } else if (constraints.maxWidth <= 1200) {
             return CourseListWeb(itemCount: 4, learningPath: learningPath,);
+          } else {
+            return CourseListWeb(itemCount: 5, learningPath: learningPath,);
           }
         },
       ),
