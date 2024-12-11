@@ -308,7 +308,7 @@ var courseList = [
     rating: 4.84,
     progress: 0,
     description: 'Amazon Web Services (AWS) adalah platform cloud paling komprehensif dan digunakan secara luas di dunia. AWS telah dipercaya oleh jutaan pelanggan dari semua kalangan. Baik startup, perusahaan besar, dan lembaga pemerintah terkemuka telah menggunakan AWS untuk menghemat, menjadi lebih tangkas, dan berinovasi lebih cepat. Oleh karena itu, pahami dan kuasailah cara membangun arsitektur di AWS agar Anda mampu membangun arsitektur yang andal, aman, dan optimal; sekaligus menambah nilai bisnis bagi perusahaan.',
-    banner: 'https://pikaso.cdnpk.net/private/production/1235624716/render.jpeg?token=exp=1763078400~hmac=488510c36b3f294ebd22f481caa976c73d20c1f92c008f65b1b5f79cb356d34f',
+    banner: 'https://pikaso.cdnpk.net/private/production/1235475382/render.jpeg?token=exp=1763078400~hmac=5bbf9761e182395d891f09998ba3c272c62671608830ff024fc616336ee43a0e',
     technology: [
       PathParent.backEndJavaScript,
       PathParent.devOps,
