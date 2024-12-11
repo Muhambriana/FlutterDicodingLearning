@@ -7,7 +7,8 @@ enum PathParent {
   devOps('DevOps'),
   frontEndWeb('Front-End Web'),
   react('React'),
-  googleCloudPro('Google Cloud Professional');
+  googleCloudPro('Google Cloud Professional'),
+  web('Web');
 
   final String name;
 
