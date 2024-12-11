@@ -16,38 +16,56 @@ class CourseListWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+      padding: const EdgeInsets.all(10.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const AppBar(),
           const SizedBox(
             height: 30,
           ),
-          const Text(
-            "About this learning path",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: AppColors.nonPrimaryText,
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            learningPath.desc,
-            style: const TextStyle(
-              color: AppColors.nonPrimaryText,
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
           Expanded(
-            child: CourseGrid(itemCount: itemCount, courseList: learningPath.courseList,),
+            child: _centeredContent(),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _centeredContent() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(50.0),
+        child: SizedBox(
+          width: 1200,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text(
+                "About this learning path",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.nonPrimaryText,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                learningPath.desc,
+                style: const TextStyle(
+                  color: AppColors.nonPrimaryText,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: CourseGrid(itemCount: itemCount, courseList: learningPath.courseList,),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
