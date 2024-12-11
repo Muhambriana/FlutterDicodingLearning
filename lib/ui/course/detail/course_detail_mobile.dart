@@ -33,7 +33,7 @@ class _DetailMobilePageState extends State<DetailMobilePage> {
               children: [
                 Stack(
                   children: [
-                    _buildBannerAndBackButton(context),
+                    _buildBannerAndBackButton(),
                     _buildGradientSection(context, constraints, widget.course),
                   ],
                 ),
@@ -44,7 +44,7 @@ class _DetailMobilePageState extends State<DetailMobilePage> {
       ),
     );
   }
-  Widget _buildBannerAndBackButton(BuildContext context) {
+  Widget _buildBannerAndBackButton() {
     return Container(
       alignment: Alignment.bottomCenter,
       child: Stack(
