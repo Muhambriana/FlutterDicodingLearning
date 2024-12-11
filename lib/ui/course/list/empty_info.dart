@@ -13,6 +13,7 @@ class EmptyInfo extends StatelessWidget {
         ),
         const SizedBox(height: 30,),
         const Text(
+            textAlign: TextAlign.center,
             "Sorry, No Course in here",
             style: TextStyle(
               fontSize: 25,
@@ -21,6 +22,7 @@ class EmptyInfo extends StatelessWidget {
         ),
         const SizedBox(height: 10,),
         const Text(
+            textAlign: TextAlign.center,
             "You can try to another learning path",
             style: TextStyle(
               fontSize: 20,
