@@ -1,4 +1,6 @@
 
+import 'package:flutter_dicoding_learning/utils/config/technology.dart';
+
 import '../utils/config/config.dart';
 
 class CourseModel {
@@ -12,7 +14,7 @@ class CourseModel {
   double progress;
   String description;
   String banner;
-  List<PathParent> technology;
+  List<Technology> technology;
   List<String> reviewersPhoto;
   bool isBookmark;
 

@@ -1,4 +1,4 @@
-enum PathParent {
+enum Technology {
   android('Android'),
   ios('IOS'),
   multiPlatform('Multi-Platform'),
@@ -7,9 +7,12 @@ enum PathParent {
   devOps('DevOps'),
   frontEndWeb('Front-End Web'),
   react('React'),
-  googleCloudPro('Google Cloud Professional');
+  googleCloudPro('Google Cloud Professional'),
+  web('Web'),
+  fullStack('Full-Stack');
+
 
   final String name;
 
-  const PathParent(this.name);
+  const Technology(this.name);
 }
