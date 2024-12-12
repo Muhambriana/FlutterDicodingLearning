@@ -511,17 +511,4 @@ var learningPathList = [
         .where((course) => course.pathParent.contains(PathParent.android))
         .toList(),
   ),
-  // LearningPath(
-  //   path: PathParent.googleCloudPro,
-  //   desc: "Kurikulum didesain oleh Dicoding bersama Google dan para pelaku industri di bidang Cloud Computing. Siswa dipersiapkan untuk menjadi Google Cloud Professional sesuai kebutuhan industri.",
-  //   banner: 'assets/images/path_9.png',
-  //   colorList: [
-  //     const Color(0xffdddce1),
-  //     const Color(0xffd09c7a),
-  //     const Color(0xffc74e2d),
-  //   ],
-  //   courseList: courseList
-  //       .where((course) => course.pathParent.contains(PathParent.devOps))
-  //       .toList(),
-  // ),
 ];
