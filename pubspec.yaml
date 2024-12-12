@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   font_awesome_flutter: ^10.8.0
   carousel_slider: ^5.0.0
+  flutter_launcher_icons: ^0.14.2
 
 dev_dependencies:
   flutter_test:
@@ -71,4 +72,17 @@ flutter:
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto/Roboto-Medium.ttf
+
+flutter_icons:
+  android: false
+  ios: false
+  web:
+    generate: true
+    image_path: "assets/images/icon.png"
+  windows:
+    generate: false
+  macos:
+    generate: false
+  linux:
+    generate: false
 
