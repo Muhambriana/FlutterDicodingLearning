@@ -15,7 +15,7 @@ var courseList = [
     courseLevel: CourseLevel.beginner,
     averageTimeToFinish: 20,
     totalStudents: 30023,
-    totalModules: 0,
+    totalModules: 81,
     rating: 4.84,
     progress: 100,
     description: 'Dart adalah sebuah bahasa pemrograman yang dikembangkan oleh Google dan merupakan bahasa pemrograman resmi untuk Flutter, sebuah UI toolkit dan aplikasi multiplatform dari Google. Flutter sendiri telah digunakan oleh berbagai perusahaan besar seperti Google, Alibaba.com, dan Tencent karena dapat menghemat waktu dan tenaga dengan cara cukup membutuhkan satu codebase untuk mengembangkan aplikasi di berbagai platform, daripada harus menghabiskan waktu untuk membuat codebase terpisah untuk masing-masing platform.',
@@ -40,7 +40,7 @@ var courseList = [
     courseLevel: CourseLevel.beginner,
     averageTimeToFinish: 10,
     totalStudents: 999,
-    totalModules: 81,
+    totalModules: 51,
     rating: 4.9,
     progress: 100,
     description:
